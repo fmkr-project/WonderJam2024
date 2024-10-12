@@ -97,11 +97,11 @@ namespace Managers
                     bossShip.ShipDeath();
                     break;
                 case EnemyShip enemyShip:
-                    enemyShip.ShipDeath();
                     foreach (KeyValuePair<Resource, int> loot in enemyShip.Loot)
                     {
                         _playerShip.AddResourceToInventory(loot.Key, loot.Value);
                     }
+                    enemyShip.ShipDeath();
                     break;
                 case PlayerShip playerShip:
                     playerShip.ShipDeath();
