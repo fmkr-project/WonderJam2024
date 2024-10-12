@@ -12,14 +12,11 @@ class ResourceManager
 {
     public static string StringOfResource(Resource resource)
     {
-        switch (resource)
+        return resource switch
         {
-            case Resource.Money:
-                return "Money";
-            case Resource.Ether:
-                return "Ether";
-            default:
-                return "Resource not implemented";
-        }
+            Resource.Money => "money",
+            Resource.Ether => "ether",
+            _ => "Resource not implemented"
+        };
     }
 }
