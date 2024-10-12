@@ -18,13 +18,13 @@ public class CreateShieldCombat : MonoBehaviour
     public void Create(Shield module)
     {
         _sprite.sprite = module.Sprite;
-        _shield.text = module.ShieldHp.ToString();
+        _shield.text = module.ShieldHealth.ToString();
         _crew.text = module.RequiredCrew.ToString();
         _name.text = module.ModuleName;
 
         ShieldInCombat stats = GetComponent<ShieldInCombat>();
         stats.squareValue = module.RequiredCrew;
-        stats.shieldIC = module.ShieldHp;
+        stats.shieldIC = module.ShieldHealth;
     }
     
 }

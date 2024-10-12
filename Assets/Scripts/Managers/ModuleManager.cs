@@ -26,7 +26,7 @@ namespace Managers
         private void Start()
         {
             _playerShip = FindObjectOfType<PlayerShip>();
-            Debug.Log("_playerShip initialized: " + (_playerShip != null));
+            //Debug.Log("_playerShip initialized: " + (_playerShip != null));
         }
 
         /// <summary>
@@ -72,7 +72,6 @@ namespace Managers
             }
 
             Ship.Modules.Add(module);
-            Debug.Log("Module added to ship: " + module.ModuleName);
         }
 
         /// <summary>
@@ -95,7 +94,6 @@ namespace Managers
 
             if (!Ship.Modules.Contains(module)) return;
             Ship.Modules.Remove(module);
-            Debug.Log("Module removed from ship: " + module.ModuleName);
         }
 
         #endregion

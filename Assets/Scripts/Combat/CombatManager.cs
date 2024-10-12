@@ -88,8 +88,6 @@ public class CombatManager : MonoBehaviour
         }
 
         SelectModule.Instance.ResetPeople(_maxPeople);
-        // Call the player's turn function
-        Debug.Log("It's the player's turn!");
         weaponSelectionMenu.SetActive(true); // Activate the selection menu
     }
 
