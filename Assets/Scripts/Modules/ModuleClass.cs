@@ -1,7 +1,10 @@
 ﻿namespace Modules
 {
-    public class ModuleClass
+    public enum ModuleClass
     {
-        public string Designation;
+        Shield,
+        Laser,
+        Missiles,
+        Torpedo
     }
 }
