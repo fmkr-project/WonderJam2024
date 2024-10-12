@@ -34,4 +34,44 @@ public class Shop : MonoBehaviour
         TenPercentRepairsCost = new ResourceAmount(Resource.Money, 250);
         FiftyPercentRepairsCost = new ResourceAmount(Resource.Money, 1100);
     }
+
+    void BuyOneCrewmate()
+    {
+        var player = GameManager.CurrentPlayerShip;
+
+        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(OneCrewCost))
+        {
+            player.RemoveResourceFromInventory(OneCrewCost.Resource, OneCrewCost.Quantity);
+        }
+    }
+    
+    void BuyThreeCrewmates()
+    {
+        var player = GameManager.CurrentPlayerShip;
+
+        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(ThreeCrewCost))
+        {
+            player.RemoveResourceFromInventory(ThreeCrewCost.Resource, ThreeCrewCost.Quantity);
+        }
+    }
+
+    void RepairTenPercent()
+    {
+        var player = GameManager.CurrentPlayerShip;
+        
+        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(TenPercentRepairsCost))
+        {
+            player.RemoveResourceFromInventory(TenPercentRepairsCost.Resource, TenPercentRepairsCost.Quantity);
+        }
+    }
+    
+    void RepairFiftyPercent()
+    {
+        var player = GameManager.CurrentPlayerShip;
+        
+        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(FiftyPercentRepairsCost))
+        {
+            player.RemoveResourceFromInventory(FiftyPercentRepairsCost.Resource, FiftyPercentRepairsCost.Quantity);
+        }
+    }
 }
