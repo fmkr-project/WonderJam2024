@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
-using Ships;
+using Modules;
+using UnityEngine;
 
 namespace Managers
 {
-    public class ModuleManager
+    public class ModuleManager : MonoBehaviour
     {
         public static List<Module> ModuleList;
     }

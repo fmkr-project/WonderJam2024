@@ -1,6 +1,8 @@
+using System;
+using System.Collections.Generic;
 using Managers;
+using Modules;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Ships
 {
@@ -9,7 +11,8 @@ namespace Ships
         #region References
 
         protected HealthManager HealthManager;
-        
+        protected ModuleManager ModuleManager;
+
         #endregion
 
         #region Getters and Setters
@@ -22,7 +25,8 @@ namespace Ships
         public Sprite Sprite { get; set; }
 
         #endregion
-        
+
+        #region Methods
         
         // Start is called before the first frame update
         private void Start()
@@ -35,6 +39,8 @@ namespace Ships
         private void Update()
         {
         
-        }
+        }        
+
+        #endregion
     }
 }

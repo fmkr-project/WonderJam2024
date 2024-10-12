@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Ships
+namespace Modules
 {
     public class Module
     {
