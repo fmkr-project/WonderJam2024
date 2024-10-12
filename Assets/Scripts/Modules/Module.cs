@@ -9,7 +9,6 @@ namespace Modules
         public string ModuleName;
         public Sprite Sprite;
         public int RequiredCrew;
-        public ModuleClass ModuleClass;
         
         #endregion
         
@@ -35,14 +34,12 @@ namespace Modules
         /// <param name="moduleName"></param>
         /// <param name="sprite"></param>
         /// <param name="requiredCrew"></param>
-        /// <param name="moduleClass"></param>
         /// <param name="price"></param>
-        public Module(string moduleName, Sprite sprite, int requiredCrew, ModuleClass moduleClass, ResourceAmount price)
+        protected Module(string moduleName, Sprite sprite, int requiredCrew, ResourceAmount price)
         {
             ModuleName = moduleName;
             Sprite = sprite;
             RequiredCrew = requiredCrew;
-            ModuleClass = moduleClass;
             Price = price;
         }
         
