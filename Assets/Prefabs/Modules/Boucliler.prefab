@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 218412820667092330}
   - component: {fileID: 7997695962785117194}
   - component: {fileID: 9183082318338942383}
-  - component: {fileID: 7281443303831214868}
+  - component: {fileID: 7192729947424503871}
   - component: {fileID: 5795402568142130769}
   m_Layer: 5
   m_Name: Boucliler
@@ -637,7 +637,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7281443303831214868
+--- !u!114 &7192729947424503871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -646,12 +646,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6279422150831068689}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 742c8bf633beb244c87ea4ad7bcbf665, type: 3}
+  m_Script: {fileID: 11500000, guid: 0fd4478bf8e0084479690d4e28b8a181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valueText: {fileID: 3654672588403628840}
-  square: {fileID: 5795402568142130769}
-  maxTotal: 4
 --- !u!114 &5795402568142130769
 MonoBehaviour:
   m_ObjectHideFlags: 0
