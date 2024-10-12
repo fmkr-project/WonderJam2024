@@ -4,6 +4,8 @@ using TMPro;
 
 public class TickManager : MonoBehaviour
 {
+    
+    //TODO 
     public TMP_Text valueText; 
     public Button square;
     public int maxTotal = 4;
