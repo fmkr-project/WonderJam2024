@@ -5,6 +5,6 @@ namespace Managers
 {
     public class ResearchTree
     {
-        public Dictionary<ModuleClass, int> Tree = new();
+        public Dictionary<WeaponType, int> Tree = new();
     }
 }

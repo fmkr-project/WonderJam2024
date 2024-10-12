@@ -10,7 +10,7 @@ namespace Ships
         
         #region Getters and Setters
 
-        public Dictionary<Resource, int> Inventory { get; set; }
+        internal Dictionary<Resource, int> Inventory { get; } = new();
 
         #endregion
         
@@ -19,7 +19,6 @@ namespace Ships
         // Start is called before the first frame update
         private void Start()
         {
-            Inventory = new Dictionary<Resource, int>();
             AddResourceToInventory(Resource.Money, 0);
             AddResourceToInventory(Resource.Crew, 0);
             AddResourceToInventory(Resource.Scrap, 0);
