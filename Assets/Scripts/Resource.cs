@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -43,7 +44,8 @@ public class ResourceManager
             Resource.Money => Resources.Load<Sprite>("UI/Money"),
             Resource.Crew => Resources.Load<Sprite>("UI/Crew"),
             Resource.Scraps => Resources.Load<Sprite>("UI/Scraps"),
-            Resource.Ether => Resources.Load<Sprite>("UI/Ether")
+            Resource.Ether => Resources.Load<Sprite>("UI/Ether"),
+            _ => throw new Exception("Resource not implemented")
         };
     }
 }
