@@ -5,6 +5,7 @@ using UnityEngine;
 enum Resource
 {
     Money,
+    Crew,
     Ether
 }
 
@@ -15,6 +16,7 @@ class ResourceManager
         return resource switch
         {
             Resource.Money => "money",
+            Resource.Crew => "crew",
             Resource.Ether => "ether",
             _ => "Resource not implemented"
         };

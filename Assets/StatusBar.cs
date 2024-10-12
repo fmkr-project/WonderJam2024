@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class InventorySupervisor : MonoBehaviour
+public class StatusBar : MonoBehaviour
 {
     private TextMeshProUGUI _moneyAmountText;
     private TextMeshProUGUI _crewAmountText;
@@ -16,11 +16,16 @@ public class InventorySupervisor : MonoBehaviour
         
         // Load ship information
         // TODO
-        var temp1 = 20;
-        var temp2 = 150;
+        int temp1 = 25;
+        int temp2 = 8;
         
-        // Set internals to match current ship state
+        // Update status bar info
         _moneyAmountText.text = temp1.ToString();
         _crewAmountText.text = temp2.ToString();
+    }
+
+    void Update()
+    {
+        
     }
 }
