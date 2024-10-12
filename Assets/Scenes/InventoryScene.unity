@@ -1517,7 +1517,7 @@ GameObject:
   - component: {fileID: 1037878013}
   - component: {fileID: 1037878012}
   m_Layer: 0
-  m_Name: ResourceAmount1
+  m_Name: MoneyAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2212,7 +2212,7 @@ GameObject:
   - component: {fileID: 1496639033}
   - component: {fileID: 1496639032}
   m_Layer: 0
-  m_Name: ResourceAmount2
+  m_Name: CrewAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
