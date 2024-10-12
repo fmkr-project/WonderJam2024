@@ -10,7 +10,7 @@ namespace Ships
         
         #region Getters and Setters
 
-        private Dictionary<Resource, int> Inventory { get; set; }
+        public Dictionary<Resource, int> Inventory { get; set; }
 
         #endregion
         
@@ -20,6 +20,10 @@ namespace Ships
         private void Start()
         {
             Inventory = new Dictionary<Resource, int>();
+            AddResourceToInventory(Resource.Money, 0);
+            AddResourceToInventory(Resource.Crew, 0);
+            AddResourceToInventory(Resource.Scrap, 0);
+            AddResourceToInventory(Resource.Ether, 0);
         }
 
         // Update is called once per frame
