@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+enum Resource
+{
+    Money,
+    Crew,
+    Ether
+}
+
+class ResourceManager
+{
+    public static string StringOfResource(Resource resource)
+    {
+        return resource switch
+        {
+            Resource.Money => "money",
+            Resource.Crew => "crew",
+            Resource.Ether => "ether",
+            _ => "Resource not implemented"
+        };
+    }
+}
