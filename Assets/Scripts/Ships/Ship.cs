@@ -1,8 +1,8 @@
-using System;
 using System.Collections.Generic;
 using Managers;
 using Modules;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Ships
 {
@@ -10,8 +10,8 @@ namespace Ships
     {
         #region References
 
-        protected HealthManager HealthManager;
-        protected ModuleManager ModuleManager;
+        public HealthManager healthManager;
+        public ModuleManager moduleManager;
 
         #endregion
 
@@ -34,10 +34,7 @@ namespace Ships
         // Start is called before the first frame update
         private void Start()
         {
-            HealthManager = FindObjectOfType<HealthManager>();
-            HealthManager.Ship = this;
-            ModuleManager = FindObjectOfType<ModuleManager>();
-            ModuleManager.Ship = this;
+            ShipInitialization();
         }
 
         // Update is called once per frame
@@ -45,6 +42,18 @@ namespace Ships
         {
         
         }        
+        
+        /// <summary>
+        /// Initializes the ship with the HealthManager and ModuleManager components.
+        /// </summary>
+        private void ShipInitialization()
+        {
+            healthManager = gameObject.AddComponent<HealthManager>();
+            healthManager.Ship = this;
+            
+            moduleManager = gameObject.AddComponent<ModuleManager>();
+            moduleManager.Ship = this;
+        }
 
         #endregion
     }
