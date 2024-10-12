@@ -78,6 +78,11 @@ namespace Ships
         {
             return Inventory.ContainsKey(resource) && Inventory[resource] >= amount;
         }
+
+        internal bool ChecksIfPlayerHasEnoughOfTheGivenResource(ResourceAmount ra)
+        {
+            return ChecksIfPlayerHasEnoughOfTheGivenResource(ra.Resource, ra.Quantity);
+        }
         
         #endregion
     }
