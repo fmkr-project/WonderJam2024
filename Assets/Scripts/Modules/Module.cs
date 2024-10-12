@@ -8,6 +8,7 @@ namespace Modules
         
         public Sprite Sprite;
         public int RequiredCrew;
+        public ModuleClass ModuleClass;
         
         #endregion
         
