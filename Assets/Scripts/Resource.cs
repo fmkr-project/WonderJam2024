@@ -10,6 +10,18 @@ public enum Resource
     Ether
 }
 
+public struct ResourceAmount
+{
+    public Resource Resource;
+    public int Quantity;
+
+    public ResourceAmount(Resource r, int q)
+    {
+        Resource = r;
+        Quantity = q;
+    }
+}
+
 public class ResourceManager
 {
     public static string StringOfResource(Resource resource)
