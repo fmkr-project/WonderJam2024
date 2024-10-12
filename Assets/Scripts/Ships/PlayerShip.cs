@@ -19,6 +19,7 @@ namespace Ships
         // Start is called before the first frame update
         private void Start()
         {
+            ShipInitialization();
             AddResourceToInventory(Resource.Money, 0);
             AddResourceToInventory(Resource.Crew, 0);
             AddResourceToInventory(Resource.Scrap, 0);

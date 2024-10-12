@@ -13,14 +13,14 @@ public class AddsomeModules : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             Weapon w = new Weapon();
-            w.Attack = i;
+            w.WeaponDamage = i;
             w.RequiredCrew = i;
             FindObjectOfType<PlayerShip>().moduleManager.AddModuleToShip(w);
         } 
         for (int i = 0; i < 5; i++)
         {
             Shield w = new Shield();
-            w.ShieldHp = i;
+            w.ShieldHealth = i;
             w.RequiredCrew = i;
             FindObjectOfType<PlayerShip>().moduleManager.AddModuleToShip(w);
         }

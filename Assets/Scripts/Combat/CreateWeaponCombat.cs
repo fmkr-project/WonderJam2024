@@ -17,13 +17,13 @@ public class CreateWeaponCombat : MonoBehaviour
     public void Create(Weapon module)
     {
         _sprite.sprite = module.Sprite;
-        _atk.text = module.Attack.ToString();
+        _atk.text = module.WeaponDamage.ToString();
         _crew.text = module.RequiredCrew.ToString();
         _name.text = module.ModuleName;
 
         WeaponInCombat stats = GetComponent<WeaponInCombat>();
         stats.squareValue = module.RequiredCrew;
-        stats.atk = module.Attack;
+        stats.atk = module.WeaponDamage;
     }
     
 }

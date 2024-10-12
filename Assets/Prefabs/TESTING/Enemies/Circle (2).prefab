@@ -114,6 +114,7 @@ MonoBehaviour:
   healthManager: {fileID: 0}
   moduleManager: {fileID: 0}
   enemyShipLootTableScriptableObject: {fileID: 11400000, guid: a99b8e5b73b917f4db0e77405d4a503d, type: 2}
+  enemyShipScriptableObject: {fileID: 11400000, guid: 420ef2352053fc04daf151bc03b3535a, type: 2}
 --- !u!58 &4516270759207823330
 CircleCollider2D:
   m_ObjectHideFlags: 0
