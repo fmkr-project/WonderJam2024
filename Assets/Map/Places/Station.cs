@@ -6,10 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class NewBehaviourScript : Place
 {
-    private void Start()
-    {
-        GetComponent<SpriteRenderer>().color = Color.gray;
-    }
+    
     public override void ChangeAction()
     {
         print("change scene to shop");

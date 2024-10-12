@@ -13,7 +13,7 @@ public class Map : MonoBehaviour
     public GameObject currentShip;
     public GameObject start;
     public GameObject finish;
-    public int progress=5;
+    public float progress=5;
     public GameObject redZone;
 
     private void Awake()
@@ -33,13 +33,15 @@ public class Map : MonoBehaviour
         //TODO : recuperer le currentShip dans le manager + le progress
         if (currentShip.IsUnityNull())
             currentShip = start;
-        redZone.transform.position = redZone.transform.position + new Vector3(progress*(float)17/5, 0, 0);
+        currentShip.AddComponent<RedZoneKill>();
+        redZone.transform.localPosition = new Vector3(progress, 0, 0);
         Connect.Instance.current = currentShip;
         Connect.Instance.MakeDistance();
     }
 
     public void Go()
     {
+        currentShip.GetComponent<RedZoneKill>().enabled = false;
         currentShip = select.gameObject;
         if (select.gameObject == finish)
         {
@@ -53,6 +55,8 @@ public class Map : MonoBehaviour
 
     void Update()
     {
+        progress += Time.deltaTime *(float) 0.08; 
+        redZone.transform.localPosition =new Vector3(progress, 0, 0);
         //check if the mouse click on nothing
         if (Input.GetMouseButtonUp(0))
         {
