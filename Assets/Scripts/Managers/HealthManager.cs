@@ -74,6 +74,7 @@ namespace Managers
         
         /// <summary>
         /// Heals the ship by the given heal amount.
+        /// Cannot heal more than the ship's max health.
         /// </summary>
         /// <param name="heal"></param>
         internal void Heal(int heal)
@@ -82,6 +83,20 @@ namespace Managers
             if (Ship.Health > Ship.MaxHealth)
             {
                 Ship.Health = Ship.MaxHealth;
+            }
+        }
+        
+        /// <summary>
+        /// Shields the ship by the given shield amount.
+        /// Cannot shield more than the ship's max health.
+        /// </summary>
+        /// <param name="shield"></param>
+        internal void Shield(int shield)
+        {
+            Ship.TemporaryHealth += shield;
+            if (Ship.TemporaryHealth > Ship.MaxHealth)
+            {
+                Ship.TemporaryHealth = Ship.MaxHealth;
             }
         }
 
