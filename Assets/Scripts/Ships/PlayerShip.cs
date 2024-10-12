@@ -35,7 +35,7 @@ namespace Ships
         /// </summary>
         internal void ShipDeath()
         {
-            Destroy(gameObject);
+            
         }
         
         /// <summary>
