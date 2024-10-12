@@ -6,6 +6,7 @@ enum Resource
 {
     Money,
     Crew,
+    Scraps,
     Ether
 }
 
@@ -17,6 +18,7 @@ class ResourceManager
         {
             Resource.Money => "money",
             Resource.Crew => "crew",
+            Resource.Scraps => "scraps",
             Resource.Ether => "ether",
             _ => "Resource not implemented"
         };
