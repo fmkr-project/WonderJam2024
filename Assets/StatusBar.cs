@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Ships;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -17,11 +18,17 @@ public class StatusBar : MonoBehaviour
         _crewAmountText = GameObject.Find("CrewAmount").GetComponent<TextMeshProUGUI>();
         _scrapsAmountText = GameObject.Find("ScrapsAmount").GetComponent<TextMeshProUGUI>();
         _etherAmountText = GameObject.Find("EtherAmount").GetComponent<TextMeshProUGUI>();
+        
+        UpdateUI();
+    }
+
+    void Update()
+    {
+        UpdateUI();
     }
     
     public void UpdateUI()
     {
         var playerShip = GameManager.CurrentPlayerShip;
-        
     }
 }

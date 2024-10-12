@@ -4,8 +4,7 @@ namespace Modules
 {
     public class Module
     {
-        public Resource PriceType;
-        public int PriceAmount;
+        public ResourceAmount Price;
 
         public Sprite Sprite;
         public int RequiredCrew;
