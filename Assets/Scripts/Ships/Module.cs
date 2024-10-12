@@ -1,11 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Module
+namespace Ships
 {
-    public Resource PriceType;
-    public int PriceAmount;
+    public class Module
+    {
+        public Resource PriceType;
+        public int PriceAmount;
 
-    public Sprite Sprite;
+        public Sprite Sprite;
+        public int RequiredCrew;
+    }
 }
