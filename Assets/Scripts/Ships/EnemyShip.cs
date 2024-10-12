@@ -39,8 +39,7 @@ namespace Ships
         /// </summary>
         internal void ShipDeath()
         {
-            GenerateLoot();
-            Destroy(gameObject);
+            
         }
         
         /// <summary>
