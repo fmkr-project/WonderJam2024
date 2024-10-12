@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Enemies;
 using UnityEngine;
 
 namespace Ships
@@ -7,11 +8,7 @@ namespace Ships
     {
         #region References
         
-        [Header("Loots")]
-        [SerializeField] private int minMoneyDrop;
-        [SerializeField] private int maxMoneyDrop;
-        [SerializeField] private int crewDropProbability;
-        [SerializeField] private int etherDropProbability;
+        [SerializeField] private EnemyShipLootTableScriptableObject enemyShipLootTableScriptableObject; // Must be assigned in the inspector.
 
         #endregion
         
@@ -32,7 +29,7 @@ namespace Ships
         // Update is called once per frame
         private void Update()
         {
-        
+            
         }
 
         /// <summary>
@@ -54,24 +51,42 @@ namespace Ships
         private Dictionary<Resource, int> GenerateLoot()
         {
             // Generate money drop
-            int moneyDrop = Random.Range(minMoneyDrop, maxMoneyDrop);
+            int moneyDrop = Random.Range(enemyShipLootTableScriptableObject.minMoneyDrop, enemyShipLootTableScriptableObject.maxMoneyDrop);
             Loot.Add(Resource.Money, moneyDrop);
+            
+            // Generate scrap drop
+            int scrapDrop = Random.Range(0, 100);
+            if (scrapDrop < enemyShipLootTableScriptableObject.scrapDropProbability)
+            {
+                Loot.Add(Resource.Scrap, Random.Range(enemyShipLootTableScriptableObject.minScrapDrop, enemyShipLootTableScriptableObject.maxScrapDrop));
+            }
             
             // Generate crew drop
             int crewDrop = Random.Range(0, 100);
-            if (crewDrop < crewDropProbability)
+            if (crewDrop < enemyShipLootTableScriptableObject.crewDropProbability)
             {
                 Loot.Add(Resource.Crew, 1);
             }
             
             // Generate ether drop
             int etherDrop = Random.Range(0, 100);
-            if (etherDrop < etherDropProbability)
+            if (etherDrop < enemyShipLootTableScriptableObject.etherDropProbability)
             {
                 Loot.Add(Resource.Ether, 1);
             }
             
             return Loot;
+        }
+        
+        /// <summary>
+        /// Checks if the gameObject using this script has the EnemyShipLootTableScriptableObject assigned.
+        /// </summary>
+        private void OnValidate()
+        {
+            if (enemyShipLootTableScriptableObject == null)
+            {
+                Debug.LogError($"{nameof(enemyShipLootTableScriptableObject)} is not assigned in {nameof(EnemyShip)} script attached to {gameObject.name}");
+            }
         }
 
         #endregion
