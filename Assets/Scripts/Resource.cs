@@ -11,6 +11,7 @@ public enum Resource
     Ether
 }
 
+[Serializable]
 public struct ResourceAmount
 {
     public Resource Resource;
