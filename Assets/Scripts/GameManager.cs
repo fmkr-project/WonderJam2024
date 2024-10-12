@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ships;
 using UnityEngine;
 
 
@@ -8,9 +9,11 @@ public static class GameManager
 {
     
     public static int crewCount;  
-    public static int moneyAmount; 
+    public static int moneyAmount;
 
+    public static PlayerShip CurrentPlayerShip { get; set; }
     
+    // Temp
     public static void SaveData()
     {
         PlayerPrefs.SetInt("CrewCount", crewCount); 
