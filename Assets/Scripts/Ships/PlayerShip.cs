@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using UnityEngine;
 
 namespace Ships
 {
@@ -32,7 +30,7 @@ namespace Ships
         
         /// <summary>
         /// Triggers the ship's death.
-        /// GameOver menu is displayed ???
+        /// GameOver menu is displayed ????
         /// This method is called when the ship's health is less than or equal to 0.
         /// </summary>
         internal void ShipDeath()
