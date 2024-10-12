@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Resource
+public enum Resource
 {
     Money,
     Crew,
@@ -10,7 +10,7 @@ enum Resource
     Ether
 }
 
-class ResourceManager
+public class ResourceManager
 {
     public static string StringOfResource(Resource resource)
     {
