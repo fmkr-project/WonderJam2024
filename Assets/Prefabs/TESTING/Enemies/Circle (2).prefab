@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8425228256251572357}
   - component: {fileID: 4180058435191170907}
   - component: {fileID: 7956087942272124868}
+  - component: {fileID: -2716874909414298658}
   - component: {fileID: 4516270759207823330}
   m_Layer: 0
   m_Name: Circle (2)
@@ -98,6 +99,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09bee8c6158e5642b3b7fa40d68e5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2716874909414298658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499106443263581368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb51b631b6b12e49833b2a860542f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthManager: {fileID: 0}
+  moduleManager: {fileID: 0}
+  enemyShipLootTableScriptableObject: {fileID: 11400000, guid: a99b8e5b73b917f4db0e77405d4a503d, type: 2}
 --- !u!58 &4516270759207823330
 CircleCollider2D:
   m_ObjectHideFlags: 0
