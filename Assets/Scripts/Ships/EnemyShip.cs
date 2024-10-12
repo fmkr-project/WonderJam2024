@@ -24,6 +24,7 @@ namespace Ships
         private void Start()
         {
             Loot = new Dictionary<Resource, int>();
+            GenerateLoot();
         }
 
         // Update is called once per frame
@@ -39,7 +40,7 @@ namespace Ships
         /// </summary>
         internal void ShipDeath()
         {
-            
+            Destroy(gameObject);
         }
         
         /// <summary>
