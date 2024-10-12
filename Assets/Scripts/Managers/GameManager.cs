@@ -15,6 +15,7 @@ namespace Managers
         public static void NewGame()
         {
             CurrentRun = 1;
+            var DELETE_ME = 8;
         }
     }
 }
