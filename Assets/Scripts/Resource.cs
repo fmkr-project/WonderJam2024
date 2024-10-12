@@ -7,7 +7,7 @@ public enum Resource
 {
     Money,
     Crew,
-    Scraps,
+    Scrap,
     Ether
 }
 
@@ -31,7 +31,7 @@ public class ResourceManager
         {
             Resource.Money => "money",
             Resource.Crew => "crew",
-            Resource.Scraps => "scraps",
+            Resource.Scrap => "scraps",
             Resource.Ether => "ether",
             _ => "Resource not implemented"
         };
@@ -43,7 +43,7 @@ public class ResourceManager
         {
             Resource.Money => Resources.Load<Sprite>("UI/Money"),
             Resource.Crew => Resources.Load<Sprite>("UI/Crew"),
-            Resource.Scraps => Resources.Load<Sprite>("UI/Scraps"),
+            Resource.Scrap => Resources.Load<Sprite>("UI/Scraps"),
             Resource.Ether => Resources.Load<Sprite>("UI/Ether"),
             _ => throw new Exception("Resource not implemented")
         };
