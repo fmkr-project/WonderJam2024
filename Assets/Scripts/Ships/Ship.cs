@@ -25,7 +25,7 @@ namespace Ships
 
         public Sprite Sprite { get; set; }
         
-        public List<Module> Modules { get; set; }
+        public List<Module> Modules { get; set; } = new();
 
         #endregion
 
@@ -46,13 +46,19 @@ namespace Ships
         /// <summary>
         /// Initializes the ship with the HealthManager and ModuleManager components.
         /// </summary>
-        private void ShipInitialization()
+        protected void ShipInitialization()
         {
+            // Check if HealthManager already exists
+            if (healthManager != null) return;
             healthManager = gameObject.AddComponent<HealthManager>();
             healthManager.Ship = this;
-            
+            Debug.Log("HealthManager initialized.");
+
+            // Check if ModuleManager already exists
+            if (moduleManager != null) return;
             moduleManager = gameObject.AddComponent<ModuleManager>();
             moduleManager.Ship = this;
+            Debug.Log("ModuleManager initialized.");
         }
 
         #endregion

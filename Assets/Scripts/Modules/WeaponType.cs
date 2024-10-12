@@ -1,8 +1,7 @@
 ﻿namespace Modules
 {
-    public enum ModuleClass
+    public enum WeaponType
     {
-        Shield,
         Laser,
         Missiles,
         Torpedo

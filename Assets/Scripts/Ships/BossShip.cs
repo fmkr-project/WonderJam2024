@@ -7,7 +7,9 @@ namespace Ships
         // Start is called before the first frame update
         private void Start()
         {
-            
+            ShipInitialization();
+            EnemyShipInitialization();
+            //TODO : Generate Boss Loot
         }
 
         // Update is called once per frame

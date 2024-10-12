@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using Enemies;
+using Modules;
 using UnityEngine;
 
 namespace Ships
@@ -9,12 +11,13 @@ namespace Ships
         #region References
         
         [SerializeField] private EnemyShipLootTableScriptableObject enemyShipLootTableScriptableObject; // Must be assigned in the inspector.
+        [SerializeField] private EnemyShipScriptableObject enemyShipScriptableObject; // Must be assigned in the inspector.
 
         #endregion
         
         #region Getters and Setters
         
-        public Dictionary<Resource, int> Loot { get; set; }
+        public Dictionary<Resource, int> Loot { get; } = new();
 
         #endregion
         
@@ -23,7 +26,8 @@ namespace Ships
         // Start is called before the first frame update
         private void Start()
         {
-            Loot = new Dictionary<Resource, int>();
+            ShipInitialization();
+            EnemyShipInitialization();
             GenerateLoot();
         }
 
@@ -47,8 +51,7 @@ namespace Ships
         /// Generates the loot that the enemy will drop when it dies.
         /// Updates the Loot property with the generated loot.
         /// </summary>
-        /// <returns></returns>
-        private Dictionary<Resource, int> GenerateLoot()
+        protected void GenerateLoot()
         {
             // Generate money drop
             int moneyDrop = Random.Range(enemyShipLootTableScriptableObject.minMoneyDrop, enemyShipLootTableScriptableObject.maxMoneyDrop);
@@ -74,18 +77,67 @@ namespace Ships
             {
                 Loot.Add(Resource.Ether, 1);
             }
-            
-            return Loot;
         }
         
         /// <summary>
-        /// Checks if the gameObject using this script has the EnemyShipLootTableScriptableObject assigned.
+        /// Checks if the gameObject using this script has the EnemyShipLootTableScriptableObject and the EnemyShipScriptableObject assigned.
         /// </summary>
-        private void OnValidate()
+        protected void OnValidate()
         {
             if (enemyShipLootTableScriptableObject == null)
             {
                 Debug.LogError($"{nameof(enemyShipLootTableScriptableObject)} is not assigned in {nameof(EnemyShip)} script attached to {gameObject.name}");
+            }
+            
+            if (enemyShipScriptableObject == null)
+            {
+                Debug.LogError($"{nameof(enemyShipScriptableObject)} is not assigned in {nameof(EnemyShip)} script attached to {gameObject.name}");
+            }
+        }
+        
+        /// <summary>
+        /// Initializes the ship with the values from the EnemyShipScriptableObject.
+        /// </summary>
+        protected void EnemyShipInitialization()
+        {
+            if (enemyShipScriptableObject == null)
+            {
+                Debug.LogError("EnemyShipScriptableObject is not assigned.");
+                return;
+            }
+
+            if (moduleManager == null)
+            {
+                Debug.LogError("ModuleManager is not initialized.");
+                return;
+            }
+            
+            Health = enemyShipScriptableObject.health;
+            MaxHealth = enemyShipScriptableObject.maxHealth;
+            TemporaryHealth = enemyShipScriptableObject.temporaryHealth;
+            Sprite = enemyShipScriptableObject.sprite;
+            
+            foreach (Shield shield in enemyShipScriptableObject.shieldModules.Select(shieldModule => new Shield(
+                         shieldModule.moduleName, 
+                         shieldModule.sprite,
+                         shieldModule.requiredCrew,
+                         shieldModule.price,
+                         shieldModule.shieldHealth
+                     )))
+            {
+                moduleManager.AddModuleToShip(shield);
+            }
+            
+            foreach (Weapon weapon in enemyShipScriptableObject.weaponModules.Select(weaponModule => new Weapon(
+                         weaponModule.moduleName,
+                         weaponModule.sprite,
+                         weaponModule.requiredCrew,
+                         weaponModule.price,
+                         weaponModule.weaponType,
+                         weaponModule.weaponDamage
+                     )))
+            {
+                moduleManager.AddModuleToShip(weapon);
             }
         }
 
