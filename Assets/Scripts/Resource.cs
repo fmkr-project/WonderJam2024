@@ -10,7 +10,7 @@ public enum Resource
     Ether
 }
 
-class ResourceManager
+public class ResourceManager
 {
     public static string StringOfResource(Resource resource)
     {
