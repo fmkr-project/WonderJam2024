@@ -4,9 +4,21 @@ namespace Modules
 {
     public class Module
     {
-        public ResourceAmount Price;
-
+        #region References
+        
         public Sprite Sprite;
         public int RequiredCrew;
+        
+        #endregion
+        
+        #region Getters and Setters
+        
+        public ResourceAmount Price { get; set; }
+
+        #endregion
+        
+        #region Methods
+        
+        #endregion
     }
 }
