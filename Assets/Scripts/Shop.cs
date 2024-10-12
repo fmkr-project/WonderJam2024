@@ -17,7 +17,7 @@ public class Shop : MonoBehaviour
     void Start()
     {
         var rng = new Random();
-        var moduleList = ModuleManager.ModuleList;
+        var moduleList = ModuleManager.ListOfAllModules;
         var soldModulesAmount = rng.Next(3, 4);
         // Choose a random selection of modules
         SoldModules = Enumerable
