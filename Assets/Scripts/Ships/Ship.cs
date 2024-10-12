@@ -16,13 +16,16 @@ namespace Ships
         #endregion
 
         #region Getters and Setters
-
-        [field: Header("Ship References")]
+        
         public int Health { get; set; }
 
         public int MaxHealth { get; set; }
+        
+        public int TemporaryHealth { get; set; }
 
         public Sprite Sprite { get; set; }
+        
+        public List<Module> Modules { get; set; }
 
         #endregion
 
@@ -33,6 +36,8 @@ namespace Ships
         {
             HealthManager = FindObjectOfType<HealthManager>();
             HealthManager.Ship = this;
+            ModuleManager = FindObjectOfType<ModuleManager>();
+            ModuleManager.Ship = this;
         }
 
         // Update is called once per frame
