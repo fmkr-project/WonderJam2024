@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 2387498772966193423}
   - component: {fileID: 9066651429887304031}
   m_Layer: 0
-  m_Name: CrewAmount (2)
+  m_Name: EtherAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 8585051795326214905}
   - component: {fileID: 9033212633779510383}
   m_Layer: 0
-  m_Name: CrewIcon (1)
+  m_Name: ScrapsIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,7 +802,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c9f8521f2b359ae499ebb6e06ae07917, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 102cc94648e8ec54cb8262eab77c2120, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 2124891426746482003}
   - component: {fileID: 8513738036686792434}
   m_Layer: 0
-  m_Name: CrewAmount (1)
+  m_Name: ScrapsAmount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -958,7 +958,7 @@ GameObject:
   - component: {fileID: 4321307336897469435}
   - component: {fileID: 6013416771137600580}
   m_Layer: 0
-  m_Name: CrewIcon (2)
+  m_Name: EtherIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1011,7 +1011,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c9f8521f2b359ae499ebb6e06ae07917, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3add49d3bb0b7904fb0e5d566d6b946f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -6,22 +6,22 @@ using UnityEngine;
 
 public class StatusBar : MonoBehaviour
 {
+    private TextMeshProUGUI _moneyAmountText;
+    private TextMeshProUGUI _crewAmountText;
+    private TextMeshProUGUI _scrapsAmountText;
+    private TextMeshProUGUI _etherAmountText;
 
-    
-    
-    public TMP_Text crewText; 
-    public TMP_Text moneyText; 
+    void Start()
+    {
+        _moneyAmountText = GameObject.Find("MoneyAmount").GetComponent<TextMeshProUGUI>();
+        _crewAmountText = GameObject.Find("CrewAmount").GetComponent<TextMeshProUGUI>();
+        _scrapsAmountText = GameObject.Find("ScrapsAmount").GetComponent<TextMeshProUGUI>();
+        _etherAmountText = GameObject.Find("EtherAmount").GetComponent<TextMeshProUGUI>();
+    }
     
     public void UpdateUI()
     {
-        crewText.text = GameManager.crewCount.ToString();
-        moneyText.text = GameManager.moneyAmount.ToString();
+        var playerShip = GameManager.CurrentPlayerShip;
+        
     }
-
-    
-    private void Start()
-    {
-        UpdateUI(); 
-}
-
 }
