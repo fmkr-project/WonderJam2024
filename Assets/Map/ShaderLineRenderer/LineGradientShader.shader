@@ -4,12 +4,12 @@ Shader "Custom/LineGradientShader"
     {
         _MainTex ("Texture", 2D) = "white" {}
         _Color1 ("Color 1", Color) = (1, 0.6, 0, 1) // Orange clair
-        _Color2 ("Color 2", Color) = (0, 0, 0, 1)   // Noir
+        _Color2 ("Color 2", Color) = (1, 1, 1, 1)   // Noir
         _Width ("Line Width", Range(0.1, 1.0)) = 0.15 // Ajuster la plage
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque" "Queue"="Transparent-100"}
         LOD 100
 
         Pass

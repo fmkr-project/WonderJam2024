@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Loot : Place
 {
-    private void Start()
-    {
-        GetComponent<SpriteRenderer>().color = Color.yellow;
-    }
+    // private void Start()
+    // {
+    //     GetComponent<SpriteRenderer>().color = Color.yellow;
+    // }
     public override void ChangeAction()
     {
         print("change scene to loot");

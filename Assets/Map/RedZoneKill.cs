@@ -1,13 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
-public class hit : MonoBehaviour
+public class RedZoneKill : MonoBehaviour
 {
     public float detectionRadius = 0.1f; // Rayon de détection
+    private bool _gameOver;
     private void Update()
     {
+        if (_gameOver) return;
         // Obtenez la position du collider à vérifier
         Vector2 colliderPosition = GetComponent<Collider2D>().bounds.center;
 
@@ -20,7 +23,9 @@ public class hit : MonoBehaviour
             
             if (hitCollider.gameObject.name=="RedZone")
             {
-                print("hiiiiiiiiiiiiiiiiiiiiiit owi");
+                _gameOver = true;
+                Time.timeScale = 0;
+                print("gameOver");
             }
         }
 

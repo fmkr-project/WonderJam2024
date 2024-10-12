@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class Combat : Place
 {
-    private void Start()
-    {
-        GetComponent<SpriteRenderer>().color = Color.red;
-    }
+    // private void Start()
+    // {
+    //     GetComponent<SpriteRenderer>().color = Color.red;
+    // }
 
     public override void ChangeAction()
     {
