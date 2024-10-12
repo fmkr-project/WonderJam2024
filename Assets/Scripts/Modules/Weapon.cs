@@ -1,4 +1,4 @@
-﻿namespace Ships
+﻿namespace Modules
 {
     public class Weapon : Module
     {
