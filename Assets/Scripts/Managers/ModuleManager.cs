@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using JetBrains.Annotations;
+﻿using System.Collections.Generic;
 using Modules;
 using Ships;
 using UnityEngine;
@@ -27,8 +25,6 @@ namespace Managers
         // Start is called before the first frame update
         private void Start()
         {
-            ListOfAllModules = new List<Module>();
-            
             _playerShip = FindObjectOfType<PlayerShip>();
         }
 
@@ -60,7 +56,7 @@ namespace Managers
         /// Adds the given module to the ship.
         /// </summary>
         /// <param name="module"></param>
-        private void AddModuleToShip(Module module)
+        internal void AddModuleToShip(Module module)
         {
             Ship.Modules.Add(module);
         }
@@ -69,7 +65,7 @@ namespace Managers
         /// Removes the given module from the ship.
         /// </summary>
         /// <param name="module"></param>
-        private void RemoveModuleFromShip(Module module)
+        internal void RemoveModuleFromShip(Module module)
         {
             if (!Ship.Modules.Contains(module)) return;
             Ship.Modules.Remove(module);

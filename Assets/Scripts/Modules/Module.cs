@@ -2,10 +2,11 @@ using UnityEngine;
 
 namespace Modules
 {
-    public class Module
+    public class Module : MonoBehaviour
     {
         #region References
         
+        public string Name;
         public Sprite Sprite;
         public int RequiredCrew;
         public ModuleClass ModuleClass;
