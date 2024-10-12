@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,12 +8,12 @@ namespace Ships
     {
         #region References
 
-        private Dictionary<Resource, int> _inventory;
-
         #endregion
         
         #region Getters and Setters
-        
+
+        private Dictionary<Resource, int> Inventory { get; set; }
+
         #endregion
         
         #region Methods
@@ -20,13 +21,13 @@ namespace Ships
         // Start is called before the first frame update
         private void Start()
         {
-            _inventory = new Dictionary<Resource, int>();
+            Inventory = new Dictionary<Resource, int>();
         }
 
         // Update is called once per frame
         private void Update()
         {
-        
+
         }
         
         /// <summary>
@@ -44,11 +45,11 @@ namespace Ships
         /// </summary>
         /// <param name="resource"></param>
         /// <param name="amount"></param>
-        private void AddItemToInventory(Resource resource, int amount)
+        internal void AddResourceToInventory(Resource resource, int amount)
         {
-            if (!_inventory.TryAdd(resource, amount))
+            if (!Inventory.TryAdd(resource, amount))
             {
-                _inventory[resource] += amount;
+                Inventory[resource] += amount;
             }
         }
         
@@ -59,13 +60,13 @@ namespace Ships
         /// </summary>
         /// <param name="resource"></param>
         /// <param name="amount"></param>
-        private void RemoveItemFromInventory(Resource resource, int amount)
+        internal void RemoveResourceFromInventory(Resource resource, int amount)
         {
-            if (!_inventory.ContainsKey(resource)) return;
-            _inventory[resource] -= amount;
-            if (_inventory[resource] <= 0)
+            if (!Inventory.ContainsKey(resource)) return;
+            Inventory[resource] -= amount;
+            if (Inventory[resource] <= 0)
             {
-                _inventory.Remove(resource);
+                Inventory.Remove(resource);
             }
         }
         
@@ -75,9 +76,9 @@ namespace Ships
         /// <param name="resource"></param>
         /// <param name="amount"></param>
         /// <returns></returns>
-        private bool ChecksIfPlayerHasEnoughOfTheGivenResource(Resource resource, int amount)
+        internal bool ChecksIfPlayerHasEnoughOfTheGivenResource(Resource resource, int amount)
         {
-            return _inventory.ContainsKey(resource) && _inventory[resource] >= amount;
+            return Inventory.ContainsKey(resource) && Inventory[resource] >= amount;
         }
         
         #endregion

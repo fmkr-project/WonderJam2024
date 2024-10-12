@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Managers;
 using Modules;
-using Ships;
 using UnityEngine;
 using Random = System.Random;
 
@@ -18,7 +17,7 @@ public class Shop : MonoBehaviour
     void Start()
     {
         var rng = new Random();
-        var moduleList = ModuleManager.ModuleList;
+        var moduleList = ModuleManager.ListOfAllModules;
         var soldModulesAmount = rng.Next(4, 7);
         // Choose a random selection of modules
         SoldModules = Enumerable
