@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Managers;
 using Modules;
+using Ships;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -11,9 +12,11 @@ public class AmeliorationDisplay : MonoBehaviour
     public GameObject AmilPrefab; 
     public Transform content; 
     private Shop shop;
+    private PlayerShip _ship;
 
     void Start()
     {
+        _ship = FindObjectOfType<PlayerShip>();
         
         shop = FindObjectOfType<Shop>();
         
@@ -30,6 +33,7 @@ public class AmeliorationDisplay : MonoBehaviour
 
     private void DisplayModules(List<Module> modules)
     {
+        _ship.AddResourceToInventory(Resource.Money, 5000);
         var selectedModules = modules.OrderBy(x => Random.value).Take(4).ToList();
         
         var moduleManager = FindObjectOfType<ModuleManager>();
@@ -48,12 +52,11 @@ public class AmeliorationDisplay : MonoBehaviour
             
             buyButton.onClick.AddListener(() =>
             {
-                bool purchaseSuccessful = moduleManager.BuyModule(module);
+                bool purchaseSuccessful = shop.ReplaceTier1WithTier2(module);
                 if (purchaseSuccessful)
                 {
                     Destroy(moduleInstance);
                 }
-                        
             });
         }
     }
