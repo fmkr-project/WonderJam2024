@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Modules;
+using UnityEngine;
 
-namespace Modules
+namespace ScriptableObjects.Scripts
 {
     [CreateAssetMenu(fileName = "WeaponModule", menuName = "ScriptableObjects/WeaponModule", order = 1)]
     public class WeaponModuleScriptableObject : ScriptableObject
