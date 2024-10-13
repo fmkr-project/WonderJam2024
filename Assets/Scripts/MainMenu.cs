@@ -42,6 +42,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/Tuto");
     }
-    
-    
+
+    public void Home()
+    {
+        SceneManager.LoadScene("Scenes/Introduction");
+    }
 }

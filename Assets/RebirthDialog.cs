@@ -6,20 +6,22 @@ using Ships;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class TutoDialog : MonoBehaviour
+public class RebirthDialog : MonoBehaviour
 {
    private IEnumerator Start()
     {
         Debug.Log(GameManager.CurrentRun);
-        if (GameManager.CurrentRun == 1)
+        if (GameManager.CurrentRun == 2)
         {
             StartCoroutine(DialogueManager.OpenDialogueBox());
             // Before and after each operation, insert this line to wait until the player clicks on the screen
             while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             // Push a new dialogue, specifying who is speaking (enemy or player / narration)
-            DialogueManager.PushDialogue("You're on your way to discover the galaxy. Be aware, lots of pirates will try to attack you during your journey. May I suggest you go in the shop and buy some weapons to protect you?", DialogueParts.Player);
+            DialogueManager.PushDialogue("You died....... Sad Heh!......", DialogueParts.Player);
             while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
-            DialogueManager.PushDialogue("You will find it not far from here. Use your money to have defenses and weapons", DialogueParts.Player);
+            DialogueManager.PushDialogue("Don't worry, it was a clone all along and you've got plenty more.", DialogueParts.Player);
+            while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
+            DialogueManager.PushDialogue("You will go back on your journey in a few. But for now, you can use your ether to permanently gain some bonus !", DialogueParts.Player);
             while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             StartCoroutine(DialogueManager.CloseDialogueBox());
         }
