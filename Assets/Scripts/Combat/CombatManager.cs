@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Modules;
+using Ships;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
@@ -20,6 +24,17 @@ public class CombatManager : MonoBehaviour
     public List<Transform> modulesParents; // 1 : weapon, 2 : shhield, 3: other
     public List<GameObject> modulesPrefabs; // same order as in modulesParents
     [SerializeField] private int _maxPeople; // Peoples retrieves from the ship
+    private PlayerShip _playerShip;
+
+    private void Start()
+    {
+        _playerShip = FindObjectOfType<PlayerShip>();
+        StartCoroutine(SpawnEnemies());
+        //TODO : quand on aura un vrai ship !
+        FindObjectOfType<AddsomeModules>().add();
+        SpawnModules();
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -29,47 +44,34 @@ public class CombatManager : MonoBehaviour
         }
 
         Instance = this;
-        // Instantiate enemies at startup
-        StartCoroutine(SpawnEnemies());
-        SpawnModules();
     }
 
     private void SpawnModules()
     {
-        //  TODO : changer l'implementation pour mettre les vrais armes et tout
-        if (1 == 0)
-        {
-            List<ModuleInCombat> mmmm = new List<ModuleInCombat>(); //new List<ModuleInCombat>(ship.GetModules());
-            foreach (var mod in mmmm)
-            {   
-                // if mod is weapon
-                GameObject weapon = Instantiate(modulesPrefabs[0], modulesParents[0]);
-                _modules.Add(weapon.GetComponent<ModuleInCombat>());
-                // if mod is shield
-                GameObject shield = Instantiate(modulesPrefabs[1], modulesParents[1]);
-                _modules.Add(shield.GetComponent<ModuleInCombat>());
-                // if mod is other
-                GameObject other = Instantiate(modulesPrefabs[2], modulesParents[2]);
-                _modules.Add(other.GetComponent<ModuleInCombat>());
-                //fix all the values the module in combat should have !
-            }
-        }
-        else
-        {
-            foreach (var gm in temporaryModules)
+            foreach (var mod in _playerShip.Modules)
             {
-                print("sheeeeeh");
-                var mod = Instantiate(gm, modulesParents[0]);
-                mod.SetActive(true);
-                _modules.Add(mod.GetComponent<ModuleInCombat>());
+                switch (mod)
+                {
+                    case Weapon mod1:
+                        GameObject weapon = Instantiate(modulesPrefabs[0], modulesParents[0]);
+                        weapon.SetActive(true);
+                        weapon.GetComponent<CreateWeaponCombat>().Create(mod1);
+                        _modules.Add(weapon.GetComponent<ModuleInCombat>());
+                        break;
+                    case Shield mod1:
+                        GameObject shield = Instantiate(modulesPrefabs[1], modulesParents[1]);
+                        shield.SetActive(true);
+                        shield.GetComponent<CreateShieldCombat>().Create(mod1);
+                        _modules.Add(shield.GetComponent<ModuleInCombat>());
+                        break;
+                }
+                
             }
-        }
     }
     private IEnumerator SpawnEnemies()
     {
         foreach(var enemyPrefab in enemies)
         {
-            print("sheh");
             GameObject enemy = Instantiate(enemyPrefab, enemyParent);
             enemiesInstantiated.Add(enemy);
             yield return new WaitForSeconds(0.5f); // Delay between each enemy
@@ -86,8 +88,6 @@ public class CombatManager : MonoBehaviour
         }
 
         SelectModule.Instance.ResetPeople(_maxPeople);
-        // Call the player's turn function
-        Debug.Log("It's the player's turn!");
         weaponSelectionMenu.SetActive(true); // Activate the selection menu
     }
 
@@ -106,6 +106,7 @@ public class CombatManager : MonoBehaviour
     {
         foreach (var enemyGameobject in enemiesInstantiated)
         {
+            if(enemyGameobject.IsUnityNull()) continue;
             if(enemyGameobject.TryGetComponent(out EnemyInCombat enemy))
                 enemy.TakeAction(); // Enemy's action
             yield return new WaitForSeconds(0.5f);
@@ -119,7 +120,27 @@ public class CombatManager : MonoBehaviour
 
     private void CheckGameOver()
     {
-        //TODO : check if player is alive
+        if (_playerShip.Health <0) 
+        {
+            //TODO : you loose;
+            print("you loose");
+        }
+
+        if (!checkEnemies())
+        {
+            //TODO : You win;
+            SceneManager.LoadScene("Map/MAP 2");
+        }
+    }
+
+    private bool checkEnemies()
+    {
+        foreach (var enemy in enemiesInstantiated)
+        {
+            if (!enemy.IsUnityNull()) return true;
+        }
+
+        return false;
     }
 
     /*public void InitializeModules(Ship ship)

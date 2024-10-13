@@ -52,13 +52,11 @@ namespace Ships
             if (healthManager != null) return;
             healthManager = gameObject.AddComponent<HealthManager>();
             healthManager.Ship = this;
-            Debug.Log("HealthManager initialized.");
 
             // Check if ModuleManager already exists
             if (moduleManager != null) return;
             moduleManager = gameObject.AddComponent<ModuleManager>();
             moduleManager.Ship = this;
-            Debug.Log("ModuleManager initialized.");
         }
 
         #endregion
