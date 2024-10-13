@@ -285,6 +285,7 @@ GameObject:
   - component: {fileID: 122555622}
   - component: {fileID: 122555621}
   - component: {fileID: 122555620}
+  - component: {fileID: 122555623}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -357,7 +358,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 122555621}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 122555623}
+        m_TargetAssemblyTypeName: RebirthUpgradeButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &122555621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +409,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122555618}
   m_CullTransparentMesh: 1
+--- !u!114 &122555623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122555618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9904740f694db4640b9465706cf39bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: MoreShield
 --- !u!1 &206370168
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +972,7 @@ GameObject:
   - component: {fileID: 392386664}
   - component: {fileID: 392386663}
   - component: {fileID: 392386662}
+  - component: {fileID: 392386665}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1018,7 +1045,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 392386663}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 392386665}
+        m_TargetAssemblyTypeName: RebirthUpgradeButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &392386663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1057,6 +1096,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392386660}
   m_CullTransparentMesh: 1
+--- !u!114 &392386665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392386660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9904740f694db4640b9465706cf39bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: MoreDamage
 --- !u!1 &520594026
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1405,7 @@ GameObject:
   - component: {fileID: 809796937}
   - component: {fileID: 809796936}
   - component: {fileID: 809796935}
+  - component: {fileID: 809796938}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -1423,7 +1476,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 809796936}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 809796938}
+        m_TargetAssemblyTypeName: RebirthUpgradeButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &809796936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1462,6 +1527,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809796933}
   m_CullTransparentMesh: 1
+--- !u!114 &809796938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809796933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9904740f694db4640b9465706cf39bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: MoreHealth
 --- !u!1 &890999353
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2515,7 @@ GameObject:
   - component: {fileID: 1168327106}
   - component: {fileID: 1168327105}
   - component: {fileID: 1168327104}
+  - component: {fileID: 1168327107}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -2509,7 +2588,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1168327105}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1168327107}
+        m_TargetAssemblyTypeName: RebirthUpgradeButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1168327105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2548,6 +2639,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168327102}
   m_CullTransparentMesh: 1
+--- !u!114 &1168327107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168327102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9904740f694db4640b9465706cf39bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: MoreCrew
 --- !u!1 &1217302707
 GameObject:
   m_ObjectHideFlags: 0
@@ -2694,6 +2798,7 @@ GameObject:
   - component: {fileID: 1247010814}
   - component: {fileID: 1247010813}
   - component: {fileID: 1247010812}
+  - component: {fileID: 1247010815}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -2766,7 +2871,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1247010813}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1247010815}
+        m_TargetAssemblyTypeName: RebirthUpgradeButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1247010813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2805,6 +2922,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1247010810}
   m_CullTransparentMesh: 1
+--- !u!114 &1247010815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247010810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9904740f694db4640b9465706cf39bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: LessRedzone
 --- !u!1 &1248417526
 GameObject:
   m_ObjectHideFlags: 0
@@ -2893,6 +3023,7 @@ GameObject:
   - component: {fileID: 1316679636}
   - component: {fileID: 1316679635}
   - component: {fileID: 1316679634}
+  - component: {fileID: 1316679637}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -2965,7 +3096,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1316679635}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1316679637}
+        m_TargetAssemblyTypeName: RebirthUpgradeButton, Assembly-CSharp
+        m_MethodName: OnButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1316679635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3004,6 +3147,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1316679632}
   m_CullTransparentMesh: 1
+--- !u!114 &1316679637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316679632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9904740f694db4640b9465706cf39bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upgradeName: ShieldRegen
 --- !u!1 &1586732115
 GameObject:
   m_ObjectHideFlags: 0

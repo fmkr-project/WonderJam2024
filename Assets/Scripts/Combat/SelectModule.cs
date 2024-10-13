@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ships;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -104,6 +105,9 @@ public class SelectModule : MonoBehaviour
         _selectedWeapon.isUsed = true;
         _selectedWeapon.GetComponent<Image>().color = Color.gray;
         _selectedWeapon.enemy = enemy;
+        var _ship = _selectedWeapon.enemy.GetComponent<EnemyShip>();
+        var enemyinCombat = _selectedWeapon.enemy.GetComponent<EnemyInCombat>();
+        StartCoroutine(enemyinCombat.FlashDamageEffect(_ship));
         _selectedWeapon = null;
         foreach (var enemyInCombat in _enemyInCombats)
         {

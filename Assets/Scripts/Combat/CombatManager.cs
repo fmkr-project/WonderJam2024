@@ -102,6 +102,7 @@ public class CombatManager : MonoBehaviour
         foreach (var module in _modules)
         {
             module.Tick(); // TODO: Maybe add time between each action?
+            
         }
 
         StartCoroutine(StartEnemyTurn());
