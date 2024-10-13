@@ -5,6 +5,7 @@ using Managers;
 using Ships;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 public class Map : MonoBehaviour
@@ -66,21 +67,23 @@ public class Map : MonoBehaviour
     public void Go()
     {
         //currentShip.GetComponent<RedZoneKill>().enabled = false;
-        print(currentShip.transform.position);
         currentShip = select.gameObject;
-        print(currentShip.transform.position);
         if (currentShip == finish)
         {
+            print("BossFight !");
             GameManager.progress = 0;
-            GameManager.currentShipPosition = new Vector3();
+            GameManager.currentShipPosition = Vector3.zero;
+            SceneManager.LoadScene("SceneCombatBoss");
             //TODO : changer le currentship dans le manager + la map + le progress
         }
-        
-        GameManager.progress = progress+(float)0.5;
-        GameManager.currentShipPosition = currentShip.transform.position;
+        else
+        {
+            GameManager.progress = progress+(float)0.5;
+            GameManager.currentShipPosition = currentShip.transform.position;
         
 
-        select.ChangeAction();
+            select.ChangeAction();
+        }
     }
 
 

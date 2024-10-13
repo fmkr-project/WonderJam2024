@@ -77,7 +77,7 @@ public class CombatManager : MonoBehaviour
         if (!(enemiesInstantiated.Count >= 1))
         {
             int randomIndex = Random.Range(0, enemiesInstantiated.Count);
-            GameObject enemy = Instantiate(enemiesInstantiated[randomIndex], enemyParent);
+            GameObject enemy = Instantiate(enemies[randomIndex], enemyParent);
             enemiesInstantiated.Add(enemy);
             yield return new WaitForSeconds(0.5f);
             
@@ -132,7 +132,6 @@ public class CombatManager : MonoBehaviour
             GameManager.progress = 0;
             if (GameManager.CurrentRun > 0)
                 SceneManager.LoadScene("Upgrade");
-            
             _playerShip.GetComponent<ArcMovement>().enabled = true;
             StartCoroutine(WaitForThreeSecond());
             
@@ -141,6 +140,8 @@ public class CombatManager : MonoBehaviour
         if (!checkEnemies())
         {
             //TODO : You win;
+            if (GameManager.progress == 0)
+                SceneManager.LoadScene("Fantome");
             SceneManager.LoadScene("Map/MAP 2");
         }
     }
