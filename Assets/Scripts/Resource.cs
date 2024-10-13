@@ -44,7 +44,7 @@ public class ResourceManager
         {
             Resource.Money => Resources.Load<Sprite>("UI/Money"),
             Resource.Crew => Resources.Load<Sprite>("UI/Crew"),
-            Resource.Scrap => Resources.Load<Sprite>("UI/Scrap"),
+            Resource.Scrap => Resources.Load<Sprite>("UI/Scraps"),
             Resource.Ether => Resources.Load<Sprite>("UI/Ether"),
             _ => throw new Exception("Resource not implemented")
         };

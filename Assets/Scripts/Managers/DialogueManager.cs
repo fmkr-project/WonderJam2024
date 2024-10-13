@@ -32,6 +32,8 @@ namespace Managers
         private static GameObject _lootSurface;
         private static TextMeshProUGUI _lootText;
         private static Image _lootImage;
+
+        private static bool _blockLootClosing = false;
         
         // Time & animation
         private static float _dialogueOpenCloseTime = .75f;
@@ -57,8 +59,12 @@ namespace Managers
             _blockDialoguePrinting = false;
         }
 
-        public static IEnumerator OpenLootBox()
+        public static IEnumerator OpenLootBox(Sprite bg, string description)
         {
+            _blockLootClosing = true;
+            _lootImage.sprite = bg;
+            _lootText.text = description;
+            
             var elapsed = 0f;
             var deltaTime = Time.deltaTime;
             while (elapsed < _dialogueOpenCloseTime)
@@ -99,6 +105,7 @@ namespace Managers
         public static void NewPage()
         {
             _blockDialoguePrinting = false;
+            _blockLootClosing = false;
             
             _dialogueText.text = "";
             _i = 0;
@@ -135,6 +142,7 @@ namespace Managers
             _dialogueSurface = GameObject.Find("DialogueBoxBg");
             _dialogueSurface.transform.localScale = Vector3.zero;
             _dialogueText = GameObject.Find("DialogueBoxText").GetComponent<TextMeshProUGUI>();
+            _dialogueText.text = "";
             _dialogueArrow = GameObject.Find("DialogueBoxArrow");
             _dialogueArrow.SetActive(false);
             
@@ -145,17 +153,39 @@ namespace Managers
             _lootImage = GameObject.Find("LootBoxImage").GetComponent<Image>();
         }
 
-        IEnumerator Start()
+        IEnumerator Example()
         {
+            // Example DialogueManager coroutine.
+            // You can use FindObjectByType to find the DialogueManager in the scene if you use the prefab.
+            // Open an empty dialogue box
             StartCoroutine(OpenDialogueBox());
             
+            // Before and after each operation, insert this line to wait until the player clicks on the screen
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
+            // Push a new dialogue, specifying who is speaking (enemy or player / narration)
             PushDialogue("AZERTYUIOPQSDFGHJKLMWXCVBN", DialogueParts.Enemy);
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             PushDialogue("Never gonna give you up, never gonna let you down, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet' or 1 == 1;", DialogueParts.Player);
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             
+            // Close the dialogue box.
+            // Add a WaitForSeconds if you intend to open a loot popup afterwards.
             StartCoroutine(CloseDialogueBox());
+            yield return new WaitForSeconds(0.5f);
+
+            // Open a loot popup.
+            // Specify the context image that will appear (dat here).
+            // An example of loot string format is provided (amount and resource type to string). Replace with proper values.
+            // Wait until the player clicks to close the popup.
+            var dat = Resources.Load<Sprite>("TestSprites/Ship1");
+            StartCoroutine(OpenLootBox(dat, $"Looted {42} {ResourceManager.StringOfResource(Resource.Money)}."));
+            while (_blockLootClosing) yield return new WaitForSeconds(Time.deltaTime);
+            StartCoroutine(CloseLootBox());
+
+            // DON'T REMOVE THIS!
+            // or else you won't see the closing animation end properly
+            yield return new WaitForSeconds(1);
+
         }
 
         void Update()
