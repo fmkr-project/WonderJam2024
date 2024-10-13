@@ -169,7 +169,7 @@ public class CombatManager : MonoBehaviour
 
     private void CheckGameOver()
     {
-        if (_playerShip.Health <0) 
+        if (_playerShip.Health <=0) 
         {
             //TODO : you loose;
             GameManager.currentShipPosition = Vector3.zero;
