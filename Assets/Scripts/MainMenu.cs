@@ -25,6 +25,16 @@ public class MainMenu : MonoBehaviour
     {
        Application.Quit(); 
     }
+    
+    public void Credits()
+    {
+        SceneManager.LoadScene("Scenes/Credits");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Scenes/Introduction");
+    }
 
     public void NouvelleRun()
     {
