@@ -24,7 +24,7 @@ namespace Managers
 
         private static bool _canPrintDialogue = false;
         private static bool _isPrinting = false;
-        private static bool _blockDialoguePrinting = false;
+        public static bool _blockDialoguePrinting = false;
         private static int _i;
         private static string _dialogueTextContents;
         
@@ -33,7 +33,7 @@ namespace Managers
         private static TextMeshProUGUI _lootText;
         private static Image _lootImage;
 
-        private static bool _blockLootClosing = false;
+        public static bool _blockLootClosing = false;
         
         // Time & animation
         private static float _dialogueOpenCloseTime = .75f;

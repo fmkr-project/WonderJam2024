@@ -88,7 +88,7 @@ public class Map : MonoBehaviour
                 }
             }
 
-            GameManager.progress = progress+(float)0.5/buffer;
+            GameManager.progress = progress+(float)0.3/buffer;
             GameManager.currentShipPosition = currentShip.transform.position;
         
 
@@ -99,7 +99,7 @@ public class Map : MonoBehaviour
 
     void Update()
     {
-        progress += Time.deltaTime *(float) 0.08; 
+        progress += Time.deltaTime *(float) 0.06; 
         redZone.transform.localPosition =new Vector3(progress, 0, 0);
         //check if the mouse click on nothing
         if (Input.GetMouseButtonUp(0))

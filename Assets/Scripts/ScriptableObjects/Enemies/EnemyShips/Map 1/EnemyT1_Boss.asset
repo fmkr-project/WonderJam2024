@@ -10,15 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bed0ab96ec5d4c40b7573af8f79df13, type: 3}
-  m_Name: PlayerShipBIGStart
+  m_Name: EnemyT1_Boss
   m_EditorClassIdentifier: 
-  health: 200
-  maxHealth: 200
+  health: 75
+  maxHealth: 75
   temporaryHealth: 0
   sprite: {fileID: 21300000, guid: 9323a6c37ab7cee46aff0f07c38607a9, type: 3}
   shieldModules:
-  - {fileID: 11400000, guid: 129ba3f5a68a2ea44959ef6642bea43f, type: 2}
-  - {fileID: 11400000, guid: 84bc8d8e83ef8aa41a0b071eddaee7f2, type: 2}
+  - {fileID: 11400000, guid: 70183af23a9d1b44fa0fd8db76426803, type: 2}
+  - {fileID: 11400000, guid: ecf50c24a42e6944a90574d8d73d986e, type: 2}
   weaponModules:
-  - {fileID: 11400000, guid: 2f8c1db4cce9775499943d0c92edbdd2, type: 2}
-  - {fileID: 11400000, guid: 5c48753e7c4060843a715bf859b8055a, type: 2}
+  - {fileID: 11400000, guid: 1c5d95d4236d52b4b8771e94ff2acc95, type: 2}
+  - {fileID: 11400000, guid: bd39f48505d405b43a30e6f3f9d9b643, type: 2}
+  - {fileID: 11400000, guid: 8e146534cd5a93c44b4a29d307768411, type: 2}

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 365810e475c0ce441953b608ea2f9e83, type: 3}
-  m_Name: LootTable_Map1_EasyEncounter
+  m_Name: LootTable_Map1_MediumEncounter
   m_EditorClassIdentifier: 
-  minMoneyDrop: 25
-  maxMoneyDrop: 40
-  scrapDropProbability: 70
-  minScrapDrop: 10
-  maxScrapDrop: 20
-  crewDropProbability: 35
-  etherDropProbability: 25
+  minMoneyDrop: 10
+  maxMoneyDrop: 25
+  scrapDropProbability: 20
+  minScrapDrop: 9
+  maxScrapDrop: 17
+  crewDropProbability: 10
+  etherDropProbability: 2

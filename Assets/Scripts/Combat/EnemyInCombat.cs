@@ -13,6 +13,7 @@ public class EnemyInCombat : MonoBehaviour
     public GameObject circle;
     private PlayerShip _playerShip;
     private Ship _ship;
+    
 
     private void Start()
     {
@@ -71,6 +72,7 @@ public class EnemyInCombat : MonoBehaviour
                     StartCoroutine(ProjectileAnimation.Animate(projectile, transform.position, _playerShip.transform.position, 0.25f));
                     _playerShip.healthManager.TakeDamage(((Weapon)mod).WeaponDamage);
                     StartCoroutine(FlashDamageEffect(_playerShip));
+                    
                     break;
             }
         }
