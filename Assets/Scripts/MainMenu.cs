@@ -15,7 +15,6 @@ public class MainMenu : MonoBehaviour
     {
         _playerShip = FindObjectOfType<PlayerShip>();
         _healthBar = FindObjectOfType<healthBar>();
-        _healthBar.UpdateLife();
     }
 
     public void Jouer()
