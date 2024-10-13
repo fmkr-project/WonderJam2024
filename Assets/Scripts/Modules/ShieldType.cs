@@ -1,5 +1,8 @@
-﻿namespace Modules
+﻿using System;
+
+namespace Modules
 {
+    [Serializable]
     public enum ShieldType
     {
         Shield, // Absorbs damage.

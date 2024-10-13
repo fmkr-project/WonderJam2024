@@ -154,7 +154,8 @@ public class CombatManager : MonoBehaviour
             if(enemyGameobject.IsUnityNull()) continue;
             if(enemyGameobject.TryGetComponent(out EnemyInCombat enemy))
                 enemy.TakeAction(); // Enemy's action
-            AudioSource.Play();
+            if(!AudioSource.IsUnityNull())
+                AudioSource.Play();
             _healthBar.UpdateLife();
             
             yield return new WaitForSeconds(0.5f);
