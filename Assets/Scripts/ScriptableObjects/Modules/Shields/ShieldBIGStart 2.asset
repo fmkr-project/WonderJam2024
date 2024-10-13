@@ -18,4 +18,5 @@ MonoBehaviour:
     Resource: 0
     Quantity: 0
   requiredCrew: 4
+  shieldType: 0
   shieldHealth: 50

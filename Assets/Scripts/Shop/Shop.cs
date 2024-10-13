@@ -12,7 +12,10 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] private List<ShieldModuleScriptableObject> shieldModulesList = new();
     [SerializeField] private List<WeaponModuleScriptableObject> weaponModulesList = new();
+    [SerializeField] private List<ShieldModuleScriptableObject> shieldModulesList2 = new();
+    [SerializeField] private List<WeaponModuleScriptableObject> weaponModulesList2 = new();
     public List<Module> SoldModules = new();
+    public List<Module> SoldAmeliorations = new();
     public ResourceAmount OneCrewCost;
     public ResourceAmount ThreeCrewCost;
     public ResourceAmount TenPercentRepairsCost;
@@ -23,11 +26,11 @@ public class Shop : MonoBehaviour
        
         
         // Initialize crew / repair cost
-        OneCrewCost = new ResourceAmount(Resource.Money, 1000);
-        ThreeCrewCost = new ResourceAmount(Resource.Money, 2700);
+        OneCrewCost = new ResourceAmount(Resource.Money, 50);
+        ThreeCrewCost = new ResourceAmount(Resource.Money, 120);
         
-        TenPercentRepairsCost = new ResourceAmount(Resource.Scrap, 250);
-        FiftyPercentRepairsCost = new ResourceAmount(Resource.Scrap, 1100);
+        TenPercentRepairsCost = new ResourceAmount(Resource.Scrap, 5);
+        FiftyPercentRepairsCost = new ResourceAmount(Resource.Scrap, 20);
         
         // Initialize the shop catalog
         foreach (Shield shield in shieldModulesList.Select(shieldModule => new Shield(
@@ -53,13 +56,33 @@ public class Shop : MonoBehaviour
         {
             SoldModules.Add(weapon);
         }
+        
+        foreach (Shield shield in shieldModulesList.Select(shieldModule => new Shield(
+                     shieldModule.moduleName,
+                     shieldModule.sprite,
+                     shieldModule.requiredCrew,
+                     shieldModule.price,
+                     shieldModule.shieldType,
+                     shieldModule.shieldHealth
+                 )))
+        {
+            SoldAmeliorations.Add(shield);
+        }
+        
+        foreach (Weapon weapon in weaponModulesList.Select(weaponModule => new Weapon(
+                     weaponModule.moduleName,
+                     weaponModule.sprite,
+                     weaponModule.requiredCrew,
+                     weaponModule.price,
+                     weaponModule.weaponType,
+                     weaponModule.weaponDamage
+                 )))
+        {
+            SoldAmeliorations.Add(weapon);
+        }
     }
 
-    public void test()
-    {
-        Debug.Log("yo");
-    }
-
+  
     public bool BuyOneCrewmate()
     {
         var player = FindObjectOfType<PlayerShip>();
@@ -115,4 +138,32 @@ public class Shop : MonoBehaviour
         return false;
     }
         
+    
+    public bool ReplaceTier1WithTier2(Module module)
+    {
+        // Recherche de l'index du module de tier 1 correspondant dans SoldModules
+        int index = SoldModules.FindIndex(m => m.ModuleName == module.ModuleName);
+        if (index != -1)
+        {
+            // Cherche le module de tier 2 correspondant dans SoldAmeliorations
+            var tier2Module = SoldAmeliorations.FirstOrDefault(m => m.ModuleName == module.ModuleName);
+        
+            // Si un module de tier 2 correspondant est trouvé, le remplace
+            if (tier2Module != null)
+            {
+                SoldModules[index] = tier2Module;
+                return true; // Indique que le remplacement a réussi
+            }
+        }
+        return false; // Aucun remplacement effectué si le module correspondant n'est pas trouvé
+    }
+
+
+    
+    private string GetBaseName(string moduleName)
+    {
+        int tierIndex = moduleName.LastIndexOf("_Tier");
+        return tierIndex != -1 ? moduleName.Substring(0, tierIndex) : moduleName;
+    }
+
 }

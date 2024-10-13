@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minMoneyDrop: 5
   maxMoneyDrop: 15
-  scrapDropProbability: 10
-  minScrapDrop: 1
+  scrapDropProbability: 70
+  minScrapDrop: 4
   maxScrapDrop: 10
   crewDropProbability: 5
   etherDropProbability: 1

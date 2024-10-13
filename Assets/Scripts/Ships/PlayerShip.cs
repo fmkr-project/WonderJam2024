@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Managers;
@@ -46,6 +47,10 @@ namespace Ships
             DontDestroyOnLoad(gameObject);
         }
 
+        private void OnDestroy()
+        {
+        }
+
         // Update is called once per frame
         private void Update()
         {
@@ -59,7 +64,10 @@ namespace Ships
         /// </summary>
         internal void ShipDeath()
         {
-            
+            GameManager.CurrentRun += 1;
+            GameManager.ether = Inventory[Resource.Ether];
+            gameObject.AddComponent<ShipDataHandler>().SavePlayerShipData();
+            Destroy(gameObject);
         }
         
         /// <summary>
@@ -86,10 +94,6 @@ namespace Ships
         {
             if (!Inventory.ContainsKey(resource)) return;
             Inventory[resource] -= amount;
-            if (Inventory[resource] <= 0)
-            {
-                Inventory.Remove(resource);
-            }
         }
         
         /// <summary>
