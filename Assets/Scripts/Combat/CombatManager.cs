@@ -129,8 +129,9 @@ public class CombatManager : MonoBehaviour
             GameManager.progress = 0;
             if (GameManager.CurrentRun > 0)
                 SceneManager.LoadScene("Upgrade");
-            _playerShip.GetComponent<ArcMovement>().enabled = true;
-            SceneManager.LoadScene("Scenes/Tuto");
+           // _playerShip.GetComponent<ArcMovement>().enabled = true;
+           Destroy(_playerShip.gameObject);
+           SceneManager.LoadScene("Scenes/Tuto");
         }
 
         if (!checkEnemies())
