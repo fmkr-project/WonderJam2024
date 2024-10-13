@@ -4186,6 +4186,11 @@ MonoBehaviour:
   weaponSelectionMenu: {fileID: 1373853061}
   enemies:
   - {fileID: 3327701252707633042, guid: 1f0ed95dfc2f5c14abe085eaf435f7f2, type: 3}
+  - {fileID: 3327701252707633042, guid: ed5e11eedf077f84a87fb7c5e46d52c3, type: 3}
+  - {fileID: 3327701252707633042, guid: c9a510565a062254692c008551541109, type: 3}
+  - {fileID: 3327701252707633042, guid: 6e22e6e5399ec3441a3d67c00b70d86b, type: 3}
+  - {fileID: 3327701252707633042, guid: 2cfd64910cfdbb54fb6f34d758bce2ad, type: 3}
+  - {fileID: 3327701252707633042, guid: 28db6c1341120134fb46f4f4a2a54a30, type: 3}
   enemiesInstantiated: []
   temporaryModules:
   - {fileID: 1490403531024775022}
