@@ -41,7 +41,7 @@ public class LootAsteroid : MonoBehaviour
             // Before and after each operation, insert this line to wait until the player clicks on the screen
             while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             // Push a new dialogue, specifying who is speaking (enemy or player / narration)
-            DialogueManager.PushDialogue("Dommages pour vous, vous avez rencontré un vaisseau de trop près ! Vous perdez "+k+" pvs", DialogueParts.Player);
+            DialogueManager.PushDialogue("Sadly for you, you've hurt on a nearby Ship and loose"+k+" pvs", DialogueParts.Player);
             while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             StartCoroutine(DialogueManager.CloseDialogueBox());
         }
@@ -55,13 +55,13 @@ public class LootAsteroid : MonoBehaviour
                 switch (dico.Key)
                 {
                     case Resource.Crew:
-                        StartCoroutine(DialogueManager.OpenLootBox(spriteCrew,"Un nouveau membre !"));
+                        StartCoroutine(DialogueManager.OpenLootBox(spriteCrew,"A new crew!"));
                         break;
                     case Resource.Money:
-                        StartCoroutine(DialogueManager.OpenLootBox(spriteMoney,dico.Value+" Pièces pour toi !" ));// TODO : changer les textes
+                        StartCoroutine(DialogueManager.OpenLootBox(spriteMoney,dico.Value+" Dollars !" ));// TODO : changer les textes
                         break;
                     case Resource.Scrap:
-                        StartCoroutine(DialogueManager.OpenLootBox(spriteScrap,dico.Value + " Pièces de ferailles !"));
+                        StartCoroutine(DialogueManager.OpenLootBox(spriteScrap,dico.Value + " Fresh scraps for you !"));
                         break;
                 }
                 while (DialogueManager._blockLootClosing) yield return new WaitForSeconds(Time.deltaTime);
