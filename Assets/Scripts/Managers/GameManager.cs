@@ -16,6 +16,8 @@ namespace Managers
         public static string map = "Map/MAP 2";
         public static Vector3 currentShipPosition;
 
+        public static int ether;
+
         public static void NewGame()
         {
             CurrentRun = 1;

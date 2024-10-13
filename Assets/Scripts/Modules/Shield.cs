@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Modules
 {
+    [Serializable]
     public class Shield : Module
     {
         #region References

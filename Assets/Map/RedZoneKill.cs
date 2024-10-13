@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Ships;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,7 @@ public class RedZoneKill : MonoBehaviour
             
             if (hitCollider.gameObject.name=="RedZone")
             {
+                Destroy(FindObjectOfType<PlayerShip>().gameObject);
                 _gameOver = true;
                 Time.timeScale = 0;
                 SceneManager.LoadScene("DeathRebirth");
