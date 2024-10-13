@@ -19,6 +19,7 @@ public class SelectModule : MonoBehaviour
 
     private int _currentTotal = 0;
     private WeaponInCombat _selectedWeapon;
+    private EnemyInCombat[] _enemyInCombats;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,12 +28,15 @@ public class SelectModule : MonoBehaviour
             return;
         }
 
-        Instance = this; 
+        Instance = this;
         //DontDestroyOnLoad(gameObject); 
     }
 
+
     private void Update()
     {
+        if (_enemyInCombats.IsUnityNull()||_enemyInCombats.Length==0)
+            _enemyInCombats = FindObjectsOfType<EnemyInCombat>();
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -45,6 +49,10 @@ public class SelectModule : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void OnClickEmptySpace()
     {
+        foreach (var enemyInCombat in _enemyInCombats)
+        {
+            enemyInCombat.circle.SetActive(false);
+        }
         if(_selectedWeapon.IsUnityNull()) return;
         _selectedWeapon.isTicked = false;
         _selectedWeapon.GetComponent<Image>().color = Color.white;
@@ -69,6 +77,10 @@ public class SelectModule : MonoBehaviour
             {
                 if (_currentTotal + weapon.squareValue <= maxTotal)
                 {
+                    foreach (var enemyInCombat in _enemyInCombats)
+                    {
+                        enemyInCombat.circle.SetActive(true);
+                    }
                     _selectedWeapon = weapon;
                     weapon.isTicked = true;
                     target.GetComponent<Image>().color = Color.green; 
@@ -93,6 +105,10 @@ public class SelectModule : MonoBehaviour
         _selectedWeapon.GetComponent<Image>().color = Color.gray;
         _selectedWeapon.enemy = enemy;
         _selectedWeapon = null;
+        foreach (var enemyInCombat in _enemyInCombats)
+        {
+            enemyInCombat.circle.SetActive(false);
+        }
     }
 
     public void ResetPeople(int max)

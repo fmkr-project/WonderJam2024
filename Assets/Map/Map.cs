@@ -78,13 +78,7 @@ public class Map : MonoBehaviour
         
         GameManager.progress = progress+(float)0.5;
         GameManager.currentShipPosition = currentShip.transform.position;
-        StartCoroutine(DansUneSeconde());
-
-        IEnumerator DansUneSeconde()
-        {
-            yield return new WaitForSeconds(0.5f);
-            ship.transform.localScale = new Vector3(1,1,1);
-        }
+        
 
         select.ChangeAction();
     }
