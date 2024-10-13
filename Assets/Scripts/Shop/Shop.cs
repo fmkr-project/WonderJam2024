@@ -12,7 +12,10 @@ public class Shop : MonoBehaviour
 {
     [SerializeField] private List<ShieldModuleScriptableObject> shieldModulesList = new();
     [SerializeField] private List<WeaponModuleScriptableObject> weaponModulesList = new();
+    [SerializeField] private List<ShieldModuleScriptableObject> shieldModulesList2 = new();
+    [SerializeField] private List<WeaponModuleScriptableObject> weaponModulesList2 = new();
     public List<Module> SoldModules = new();
+    public List<Module> SoldAmeliorations = new();
     public ResourceAmount OneCrewCost;
     public ResourceAmount ThreeCrewCost;
     public ResourceAmount TenPercentRepairsCost;
@@ -52,6 +55,30 @@ public class Shop : MonoBehaviour
                  )))
         {
             SoldModules.Add(weapon);
+        }
+        
+        foreach (Shield shield in shieldModulesList.Select(shieldModule => new Shield(
+                     shieldModule.moduleName,
+                     shieldModule.sprite,
+                     shieldModule.requiredCrew,
+                     shieldModule.price,
+                     shieldModule.shieldType,
+                     shieldModule.shieldHealth
+                 )))
+        {
+            SoldAmeliorations.Add(shield);
+        }
+        
+        foreach (Weapon weapon in weaponModulesList.Select(weaponModule => new Weapon(
+                     weaponModule.moduleName,
+                     weaponModule.sprite,
+                     weaponModule.requiredCrew,
+                     weaponModule.price,
+                     weaponModule.weaponType,
+                     weaponModule.weaponDamage
+                 )))
+        {
+            SoldAmeliorations.Add(weapon);
         }
     }
 
