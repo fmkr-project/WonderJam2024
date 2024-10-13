@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4e0f8e96014b1da3851892a822af48, type: 3}
   m_Name: Laser_Tier1
   m_EditorClassIdentifier: 
-  moduleName: 
+  moduleName: Red Laser
   sprite: {fileID: 0}
   price:
     Resource: 0
-    Quantity: 0
-  requiredCrew: 0
-  weaponDamage: 0
+    Quantity: 10
+  requiredCrew: 2
+  weaponDamage: 20
   weaponType: 0
