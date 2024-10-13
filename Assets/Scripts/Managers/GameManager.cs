@@ -9,6 +9,7 @@ namespace Managers
     {
         public static PlayerShip CurrentPlayerShip { get; set; }
         public static int CurrentRun { get; set; }
+        
 
         public static List<RebirthUpgrade> RebirthUpgrades = new();
 
@@ -25,3 +26,5 @@ namespace Managers
         }
     }
 }
+
+
