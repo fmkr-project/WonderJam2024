@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Managers;
 using Modules;
+using ScriptableObjects.Scripts;
 using UnityEngine;
 using Random = System.Random;
 
 public class Shop : MonoBehaviour
 {
+    [SerializeField] private List<ShieldModuleScriptableObject> shieldModulesList = new();
+    [SerializeField] private List<WeaponModuleScriptableObject> weaponModulesList = new();
     public List<Module> SoldModules = new();
     public ResourceAmount OneCrewCost;
     public ResourceAmount ThreeCrewCost;
@@ -33,6 +36,31 @@ public class Shop : MonoBehaviour
         
         TenPercentRepairsCost = new ResourceAmount(Resource.Money, 250);
         FiftyPercentRepairsCost = new ResourceAmount(Resource.Money, 1100);
+        
+        // Initialize the shop catalog
+        foreach (Shield shield in shieldModulesList.Select(shieldModule => new Shield(
+                     shieldModule.moduleName,
+                     shieldModule.sprite,
+                     shieldModule.requiredCrew,
+                     shieldModule.price,
+                     shieldModule.shieldType,
+                     shieldModule.shieldHealth
+                 )))
+        {
+            SoldModules.Add(shield);
+        }
+        
+        foreach (Weapon weapon in weaponModulesList.Select(weaponModule => new Weapon(
+                     weaponModule.moduleName,
+                     weaponModule.sprite,
+                     weaponModule.requiredCrew,
+                     weaponModule.price,
+                     weaponModule.weaponType,
+                     weaponModule.weaponDamage
+                 )))
+        {
+            SoldModules.Add(weapon);
+        }
     }
 
     void BuyOneCrewmate()

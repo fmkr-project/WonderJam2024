@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 58a4a568d3b742c09e5ffe9c1ed0d95a, type: 3}
-  m_Name: BigShield
+  m_Name: Shield_Tier2
   m_EditorClassIdentifier: 
-  moduleName: bigshield
-  sprite: {fileID: 21300000, guid: e1352270d3e737942b035266f61965d4, type: 3}
+  moduleName: Improved Deflectors
+  sprite: {fileID: 0}
   price:
     Resource: 0
-    Quantity: 0
-  requiredCrew: 3
-  shieldHealth: 100
+    Quantity: 25
+  requiredCrew: 2
+  shieldType: 0
+  shieldHealth: 20

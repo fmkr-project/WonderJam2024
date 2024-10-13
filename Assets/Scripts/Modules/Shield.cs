@@ -7,6 +7,7 @@ namespace Modules
         #region References
 
         public int ShieldHealth;
+        public ShieldType ShieldType;
 
         #endregion
         
@@ -20,8 +21,10 @@ namespace Modules
         /// <param name="requiredCrew"></param>
         /// <param name="price"></param>
         /// <param name="shieldHealth"></param>
-        public Shield(string moduleName, Sprite sprite, int requiredCrew, ResourceAmount price, int shieldHealth) : base(moduleName, sprite, requiredCrew, price)
+        /// <param name="shieldType"></param>
+        public Shield(string moduleName, Sprite sprite, int requiredCrew, ResourceAmount price, ShieldType shieldType, int shieldHealth) : base(moduleName, sprite, requiredCrew, price)
         {
+            ShieldType = shieldType;
             ShieldHealth = shieldHealth;
         }
 
