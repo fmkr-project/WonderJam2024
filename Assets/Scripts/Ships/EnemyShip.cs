@@ -122,6 +122,7 @@ namespace Ships
                          shieldModule.sprite,
                          shieldModule.requiredCrew,
                          shieldModule.price,
+                         shieldModule.shieldType,
                          shieldModule.shieldHealth
                      )))
             {

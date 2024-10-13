@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Modules;
+using UnityEngine;
 
 namespace ScriptableObjects.Scripts
 {
@@ -9,6 +10,7 @@ namespace ScriptableObjects.Scripts
         public Sprite sprite;
         public ResourceAmount price;
         public int requiredCrew;
+        public ShieldType shieldType;
         public int shieldHealth;
     }
 }
