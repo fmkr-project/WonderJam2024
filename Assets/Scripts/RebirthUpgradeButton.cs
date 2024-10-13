@@ -13,7 +13,7 @@ public class RebirthUpgradeButton : MonoBehaviour
     {
         if (int.TryParse(tmpText.text, out int tmpValue))
         {
-            GameManager.ether += 200;
+            
             targetValue = GameManager.ether;
             if (targetValue >= tmpValue)
             {
