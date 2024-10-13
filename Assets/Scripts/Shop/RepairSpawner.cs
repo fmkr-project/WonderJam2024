@@ -4,11 +4,13 @@ using UnityEngine;
 
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class RepairSpawner : MonoBehaviour
 {
     public GameObject tenPercent; 
     public GameObject fiftyPercent;
+    public Color selectedColor = Color.gray;
 
     private Shop shop;
 
@@ -19,7 +21,9 @@ public class RepairSpawner : MonoBehaviour
 
         if (shop != null)
         {
-            UpdateCrewmateCosts();
+            UpdateRepairCosts();
+            SetupButton(tenPercent, shop.RepairTenPercent);
+            SetupButton(fiftyPercent, shop.RepairFiftyPercent);
         }
         else
         {
@@ -27,7 +31,7 @@ public class RepairSpawner : MonoBehaviour
         }
     }
 
-    private void UpdateCrewmateCosts()
+    private void UpdateRepairCosts()
     {
         
         var tenText = tenPercent.GetComponentInChildren<TMP_Text>();
@@ -37,5 +41,33 @@ public class RepairSpawner : MonoBehaviour
         var fiftyText = fiftyPercent.GetComponentInChildren<TMP_Text>();
         fiftyText.text = shop.ThreeCrewCost.Quantity.ToString();
     }
+    private void SetupButton(GameObject prefab, System.Func<bool> buyFunction)
+    {
+        var button = prefab.GetComponent<Button>();
+        var backgroundImage = prefab.GetComponent<Image>();
+        var buttonText = prefab.GetComponentInChildren<TMP_Text>();
+
+        button.onClick.AddListener(() =>
+        {
+            if (buyFunction())
+            {
+                
+                button.interactable = false;
+                if (backgroundImage != null)
+                {
+                    backgroundImage.color = selectedColor;
+                }
+                if (buttonText != null)
+                {
+                    buttonText.color = Color.white;
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Insufficient resources for purchase!");
+            }
+        });
+    }
 }
+
 

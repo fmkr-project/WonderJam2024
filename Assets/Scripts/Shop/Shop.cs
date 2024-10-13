@@ -4,6 +4,7 @@ using System.Linq;
 using Managers;
 using Modules;
 using ScriptableObjects.Scripts;
+using Ships;
 using UnityEngine;
 using Random = System.Random;
 
@@ -17,25 +18,16 @@ public class Shop : MonoBehaviour
     public ResourceAmount TenPercentRepairsCost;
     public ResourceAmount FiftyPercentRepairsCost;
     
-    void Start()
+    void Awake()
     {
-        var rng = new Random();
-        var moduleList = ModuleManager.ListOfAllModules;
-        var soldModulesAmount = rng.Next(3, 4);
-        // Choose a random selection of modules
-        SoldModules = Enumerable
-            .Range(0, soldModulesAmount)
-            .Select(i => rng.Next(0, 1 + moduleList.Count - soldModulesAmount))
-            .OrderBy(i => i)
-            .Select((a, b) => moduleList[a + b])
-            .ToList();
+       
         
         // Initialize crew / repair cost
         OneCrewCost = new ResourceAmount(Resource.Money, 1000);
         ThreeCrewCost = new ResourceAmount(Resource.Money, 2700);
         
-        TenPercentRepairsCost = new ResourceAmount(Resource.Money, 250);
-        FiftyPercentRepairsCost = new ResourceAmount(Resource.Money, 1100);
+        TenPercentRepairsCost = new ResourceAmount(Resource.Scrap, 250);
+        FiftyPercentRepairsCost = new ResourceAmount(Resource.Scrap, 1100);
         
         // Initialize the shop catalog
         foreach (Shield shield in shieldModulesList.Select(shieldModule => new Shield(
@@ -63,43 +55,64 @@ public class Shop : MonoBehaviour
         }
     }
 
-    void BuyOneCrewmate()
+    public void test()
     {
-        var player = GameManager.CurrentPlayerShip;
+        Debug.Log("yo");
+    }
 
-        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(OneCrewCost))
+    public bool BuyOneCrewmate()
+    {
+        var player = FindObjectOfType<PlayerShip>();
+        Debug.Log(player.Modules.Count);
+
+        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(OneCrewCost.Resource, OneCrewCost.Quantity))
         {
             player.RemoveResourceFromInventory(OneCrewCost.Resource, OneCrewCost.Quantity);
+            GameManager.CurrentPlayerShip.Inventory[Resource.Crew]++;
+            return true;
         }
+        return false;
     }
     
-    void BuyThreeCrewmates()
+    public bool BuyThreeCrewmates()
     {
-        var player = GameManager.CurrentPlayerShip;
+        var player = FindObjectOfType<PlayerShip>();
 
-        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(ThreeCrewCost))
+        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(ThreeCrewCost.Resource, ThreeCrewCost.Quantity))
         {
             player.RemoveResourceFromInventory(ThreeCrewCost.Resource, ThreeCrewCost.Quantity);
+            GameManager.CurrentPlayerShip.Inventory[Resource.Crew] += 3;
+            return true;
         }
+        return false;
     }
 
-    void RepairTenPercent()
+    public bool RepairTenPercent()
     {
-        var player = GameManager.CurrentPlayerShip;
-        
-        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(TenPercentRepairsCost))
+        var player = FindObjectOfType<PlayerShip>();
+            
+        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(TenPercentRepairsCost.Resource, TenPercentRepairsCost.Quantity))
         {
             player.RemoveResourceFromInventory(TenPercentRepairsCost.Resource, TenPercentRepairsCost.Quantity);
+            //TODO Rendre 10% des pvs du ship
+            return true;
         }
+
+        return false;
     }
     
-    void RepairFiftyPercent()
+    public bool RepairFiftyPercent()
     {
-        var player = GameManager.CurrentPlayerShip;
-        
-        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(FiftyPercentRepairsCost))
+        var player = FindObjectOfType<PlayerShip>();
+            
+        if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(FiftyPercentRepairsCost.Resource, FiftyPercentRepairsCost.Quantity))
         {
             player.RemoveResourceFromInventory(FiftyPercentRepairsCost.Resource, FiftyPercentRepairsCost.Quantity);
+            //TODO Rendre  50 % des pvs du ship
+            return true;
         }
+
+        return false;
     }
+        
 }
