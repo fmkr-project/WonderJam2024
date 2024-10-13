@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f4e0f8e96014b1da3851892a822af48, type: 3}
   m_Name: Disruptor_Tier3
   m_EditorClassIdentifier: 
-  moduleName: 
+  moduleName: Phased Disruptor
   sprite: {fileID: 0}
   price:
     Resource: 0
-    Quantity: 0
-  requiredCrew: 0
-  weaponDamage: 0
-  weaponType: 0
+    Quantity: 190
+  requiredCrew: 4
+  weaponDamage: 140
+  weaponType: 2
