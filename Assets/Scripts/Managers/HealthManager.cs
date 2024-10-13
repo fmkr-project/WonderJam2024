@@ -47,6 +47,8 @@ namespace Managers
                 {
                     int remainingDamage = damage - Ship.TemporaryHealth;
                     Ship.TemporaryHealth = 0;
+                    Ship.HasPlasmaShield = false;
+                    Ship.HasPsionicShield = false;
                     Ship.Health -= remainingDamage;
                 }
             }
@@ -57,6 +59,22 @@ namespace Managers
 
             // If health is less than or equal to 0, call the ShipDeath method
             ChecksIfShipIsDead();
+        }
+
+        /// <summary>
+        /// Reduces ship temporary health by the given damage.
+        /// </summary>
+        /// <param name="damage"></param>
+        internal void TakeShieldDamage(int damage)
+        {
+            if (Ship.TemporaryHealth > damage)
+                Ship.TemporaryHealth -= damage;
+            else
+            {
+                Ship.TemporaryHealth = 0;
+                Ship.HasPlasmaShield = false;
+                Ship.HasPsionicShield = false;
+            }
         }
 
         /// <summary>

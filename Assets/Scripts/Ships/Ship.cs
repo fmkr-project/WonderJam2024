@@ -28,6 +28,10 @@ namespace Ships
         
         public List<Module> Modules { get; set; } = new();
 
+        public bool HasPlasmaShield { get; set; }
+        
+        public bool HasPsionicShield { get; set; }
+
         #endregion
 
         
