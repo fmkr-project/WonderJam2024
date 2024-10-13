@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Modules
+namespace ScriptableObjects.Scripts
 {
     [CreateAssetMenu(fileName = "ShieldModule", menuName = "ScriptableObjects/ShieldModule", order = 1)]
     public class ShieldModuleScriptableObject : ScriptableObject

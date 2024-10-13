@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Modules;
 using UnityEngine;
 
-namespace Enemies
+namespace ScriptableObjects.Scripts
 {
     [CreateAssetMenu(fileName = "EnemyShip", menuName = "ScriptableObjects/EnemyShip", order = 1)]
     public class EnemyShipScriptableObject : ScriptableObject
