@@ -1,26 +1,28 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Managers;
 using Modules;
+using Ships;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class ModuleDisplay : MonoBehaviour
+public class SellDisplay : MonoBehaviour
 {
     public GameObject modulePrefab; 
     public Transform content; 
-    private Shop shop;
+    private PlayerShip ship;
 
     void Start()
     {
         
-        shop = FindObjectOfType<Shop>();
+        ship = FindObjectOfType<PlayerShip>();
         
-        if (shop != null)
+        if (ship != null)
         {
+            StartCoroutine(WaitForOneSecond());
             
-            DisplayModules(shop.SoldModules);
         }
         else
         {
@@ -31,7 +33,6 @@ public class ModuleDisplay : MonoBehaviour
     private void DisplayModules(List<Module> modules)
     {
         var selectedModules = modules.OrderBy(x => Random.value).Take(4).ToList();
-        
         var moduleManager = FindObjectOfType<ModuleManager>();
         foreach (var module in selectedModules)
         {
@@ -39,24 +40,29 @@ public class ModuleDisplay : MonoBehaviour
             
             
             var imageComponent = moduleInstance.GetComponent<Image>();
-            imageComponent.sprite = module.Sprite;
+            imageComponent.sprite = module.Sprite;  
             
             var textComponent = moduleInstance.transform.Find("PriceText").GetComponent<TMP_Text>();
             textComponent.text = module.Price.Quantity.ToString();
             
-            var buyButton = moduleInstance.GetComponent<Button>();
-            
-            buyButton.onClick.AddListener(() =>
+            var sellButton = moduleInstance.GetComponent<Button>();
+            sellButton.onClick.AddListener(() =>
             {
-                moduleManager.BuyModule(module); 
-                bool purchaseSuccessful = moduleManager.BuyModule(module);
-                if (purchaseSuccessful)
-                {
-                    Destroy(moduleInstance);
-                }
-                        
+                moduleManager.SellModule(module);  
+                Destroy(moduleInstance);           
             });
         }
     }
-}
+    
+    private IEnumerator WaitForOneSecond()
+    {
+        // Attend 1 seconde
+        yield return new WaitForSeconds(1f);
 
+        DisplayModules(ship.Modules.ToList());
+        Debug.Log(ship.Modules.Count);
+        // Code à exécuter après 1 seconde
+        Debug.Log("1 seconde s'est écoulée !");
+    }
+
+}

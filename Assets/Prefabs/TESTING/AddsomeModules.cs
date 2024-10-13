@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
@@ -8,6 +9,11 @@ using UnityEngine;
 public class AddsomeModules : MonoBehaviour
 {
     // Start is called before the first frame update
+    public void Start()
+    {
+        add();
+    }
+
     public void add()
     {
         for (int i = 0; i < 5; i++)

@@ -34,13 +34,20 @@ namespace Managers
         /// Checks if the player has enough resources to buy the module.
         /// </summary>
         /// <param name="module"></param>
-        internal void BuyModule(Module module)
+        
+        internal bool BuyModule(Module module)
         {
-            if (Ship is not PlayerShip) return;
-            if (!_playerShip.ChecksIfPlayerHasEnoughOfTheGivenResource(module.Price.Resource, module.Price.Quantity)) return;
-            _playerShip.RemoveResourceFromInventory(module.Price.Resource, module.Price.Quantity);
+            if (Ship is not PlayerShip) return false;
+    
+            var playerShip = (PlayerShip)Ship;
+            if (!playerShip.ChecksIfPlayerHasEnoughOfTheGivenResource(module.Price.Resource, module.Price.Quantity)) 
+                return false;
+    
+            playerShip.RemoveResourceFromInventory(module.Price.Resource, module.Price.Quantity);
             AddModuleToShip(module);
+            return true;
         }
+
 
         /// <summary>
         /// Sell the given module for half price and removes it from the player's ship.
