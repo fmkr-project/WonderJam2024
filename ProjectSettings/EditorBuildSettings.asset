@@ -23,4 +23,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SceneCombatDebut.unity
     guid: 208a5f8e7819ca54bbee64e6de00b0b3
+  - enabled: 1
+    path: Assets/Scenes/DeathRebirth.unity
+    guid: ac8c3908413f4b0419bb833c203e5ddd
+  - enabled: 1
+    path: Assets/Scenes/Asteroides.unity
+    guid: 14c543991f19c174ebe0a66ef261db8a
   m_configObjects: {}

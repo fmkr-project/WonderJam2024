@@ -30,29 +30,62 @@ public class Map : MonoBehaviour
         //DontDestroyOnLoad(gameObject); 
     }
 
+    private PlayerShip ship;
     private void Start()
     {
-        currentShip = GameManager.currentShipPosition;
-        progress = GameManager.progress;
-        if (currentShip.IsUnityNull())
-            currentShip = start;
-        currentShip.AddComponent<RedZoneKill>();
-        FindObjectOfType<PlayerShip>().gameObject.transform.position = currentShip.transform.position;
+        if (GameManager.currentShipPosition==Vector3.zero)
+            GameManager.currentShipPosition = start.transform.position;
+        currentShip = findCurrent();
+        ship = FindObjectOfType<PlayerShip>();
+        ship.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+        ship.AddComponent<RedZoneKill>();
+        ship.gameObject.transform.position = GameManager.currentShipPosition;
         redZone.transform.localPosition = new Vector3(progress, 0, 0);
         Connect.Instance.current = currentShip;
         Connect.Instance.MakeDistance();
+        progress = GameManager.progress;
+    }
+
+    private GameObject findCurrent()
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(GameManager.currentShipPosition, 0.1f);
+        GameObject foundObject;
+        if (colliders.Length > 0)
+        {
+            foundObject = colliders[0].gameObject;
+        }
+        else
+        {
+            foundObject = start;
+            Debug.Log("No object found at the given position.");
+        }
+
+        return foundObject;
     }
 
     public void Go()
     {
-        currentShip.GetComponent<RedZoneKill>().enabled = false;
+        //currentShip.GetComponent<RedZoneKill>().enabled = false;
+        print(currentShip.transform.position);
         currentShip = select.gameObject;
-        if (select.gameObject == finish)
+        print(currentShip.transform.position);
+        if (currentShip == finish)
         {
             GameManager.progress = 0;
-            GameManager.currentShipPosition = null;
+            GameManager.currentShipPosition = new Vector3();
             //TODO : changer le currentship dans le manager + la map + le progress
         }
+        
+        GameManager.progress = progress+(float)0.5;
+        GameManager.currentShipPosition = currentShip.transform.position;
+        StartCoroutine(DansUneSeconde());
+
+        IEnumerator DansUneSeconde()
+        {
+            yield return new WaitForSeconds(0.5f);
+            ship.transform.localScale = new Vector3(1,1,1);
+        }
+
         select.ChangeAction();
     }
 

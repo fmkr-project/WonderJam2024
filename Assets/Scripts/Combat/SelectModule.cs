@@ -57,7 +57,7 @@ public class SelectModule : MonoBehaviour
             if (shield.isUsed) return;
             if (_currentTotal + shield.squareValue <= maxTotal)
             {
-                _currentTotal -= shield.squareValue;
+                _currentTotal += shield.squareValue;
                 shield.isUsed = true;
                 shield.GetComponent<Image>().color = Color.gray; 
             }
@@ -87,6 +87,8 @@ public class SelectModule : MonoBehaviour
     {
         if(_selectedWeapon.IsUnityNull()) return;
         _currentTotal += _selectedWeapon.squareValue;
+        print(_selectedWeapon.squareValue);
+        print(_currentTotal);
         _selectedWeapon.isUsed = true;
         _selectedWeapon.GetComponent<Image>().color = Color.gray;
         _selectedWeapon.enemy = enemy;

@@ -12,7 +12,7 @@ public class CombatManager : MonoBehaviour
     public static CombatManager Instance { get; private set; }
     
     [Header("Settings")]
-    public GameObject spaceShip; // Prefab for the spaceShip
+    public Transform spaceShipPosition; // Prefab for the spaceShip
     public Transform enemyParent; // Parent for enemies
     public GameObject weaponSelectionMenu; // Weapon selection menu
 
@@ -30,6 +30,8 @@ public class CombatManager : MonoBehaviour
     private void Start()
     {
         _playerShip = FindObjectOfType<PlayerShip>();
+        _playerShip.transform.position = spaceShipPosition.position;
+        _maxPeople = _playerShip.Inventory[Resource.Crew];
         StartCoroutine(SpawnEnemies());
         SpawnModules();
     }
@@ -122,6 +124,8 @@ public class CombatManager : MonoBehaviour
         if (_playerShip.Health <0) 
         {
             //TODO : you loose;
+            GameManager.currentShipPosition = Vector3.zero;
+            GameManager.progress = 0;
             if (GameManager.CurrentRun > 0)
                 SceneManager.LoadScene("Upgrade");
             SceneManager.LoadScene("Scenes/Tuto");
