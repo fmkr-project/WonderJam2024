@@ -19,6 +19,11 @@ MonoBehaviour:
   shieldModules: []
   weaponModules:
   - {fileID: 11400000, guid: 8e146534cd5a93c44b4a29d307768411, type: 2}
+  - {fileID: 11400000, guid: 8e146534cd5a93c44b4a29d307768411, type: 2}
+  - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
+  - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
+  - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
+  - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
   - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
   - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
   - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}

@@ -29,6 +29,7 @@ public class CombatManager : MonoBehaviour
     public List<GameObject> modulesPrefabs; // same order as in modulesParents
     [SerializeField] private int _maxPeople; // Peoples retrieves from the ship
     private PlayerShip _playerShip;
+    private bool win;
 
     private void Start()
     {
@@ -78,19 +79,24 @@ public class CombatManager : MonoBehaviour
     {
         if (!(enemiesInstantiated.Count >= 1))
         {
-            int randomIndex = Random.Range(0, enemies.Count);
-            GameObject enemy = Instantiate(enemies[randomIndex], enemyParent);
-            //enemy.transform.localRotation = Quaternion.Euler(0,0,90);
-            enemiesInstantiated.Add(enemy);
-            yield return new WaitForSeconds(0.5f);
-            
+            int numberenemies = Random.Range(1, 1 + _playerShip.Modules.Count / 4);
+            for (int i = 0; i < numberenemies; i++)
+            {
+                int randomIndex = Random.Range(0, enemies.Count);
+                GameObject enemy = Instantiate(enemies[randomIndex], enemyParent);
+                enemy.transform.localPosition += Vector3.down*(i*2);
+                //enemy.transform.localRotation = Quaternion.Euler(0,0,90);
+                enemiesInstantiated.Add(enemy);
+                yield return new WaitForSeconds(0.5f);
+            }
         }
+        SelectModule.Instance.UpdateEnemies();
         StartPlayerTurn(); // Start the player's turn
     }
 
     private void StartPlayerTurn()
     {
-        if (_playerShip.Health < 0) return;
+        if (_playerShip.Health < 0 || win) return;
         double buffer = 1;
         foreach (RebirthUpgrade upgrade in GameManager.RebirthUpgrades)
         {
@@ -160,6 +166,7 @@ public class CombatManager : MonoBehaviour
 
         if (!checkEnemies())
         {
+            win = true;
             //TODO : You win;
             var fant = FindObjectOfType<Fantomes>();
             if(!fant.IsUnityNull())

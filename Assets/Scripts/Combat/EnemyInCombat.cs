@@ -44,7 +44,12 @@ public class EnemyInCombat : MonoBehaviour
             }
         }
     }
-    
+
+    private void OnDestroy()
+    {
+        _playerShip.GetComponent<SpriteRenderer>().color=Color.white;
+    }
+
     public IEnumerator FlashDamageEffect(Ship ship)
     {
         var _spriteRenderer = ship.GetComponent<SpriteRenderer>();
@@ -52,7 +57,7 @@ public class EnemyInCombat : MonoBehaviour
         var originalPosition = ship.transform.localPosition;
         _spriteRenderer.color = Color.red;
         yield return new WaitForSeconds(0.1f);
-        _spriteRenderer.color= originalColor;
+        _spriteRenderer.color= Color.white;
         float elapsed = 0f;
 
         while (elapsed < 0.5f)
