@@ -49,8 +49,6 @@ namespace Ships
 
         private void OnDestroy()
         {
-            GameManager.ether = Inventory[Resource.Ether];
-            gameObject.AddComponent<ShipDataHandler>().SavePlayerShipData();
         }
 
         // Update is called once per frame
@@ -66,7 +64,9 @@ namespace Ships
         /// </summary>
         internal void ShipDeath()
         {
-            
+            GameManager.ether = Inventory[Resource.Ether];
+            gameObject.AddComponent<ShipDataHandler>().SavePlayerShipData();
+            Destroy(gameObject);
         }
         
         /// <summary>

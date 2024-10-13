@@ -119,7 +119,7 @@ namespace Managers
                     enemyShip.ShipDeath();
                     break;
                 case PlayerShip playerShip:
-                    playerShip.ShipDeath();
+                    //playerShip.ShipDeath();
                     break;
             }
         }

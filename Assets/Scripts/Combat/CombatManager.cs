@@ -132,9 +132,15 @@ public class CombatManager : MonoBehaviour
             GameManager.currentShipPosition = Vector3.zero;
             GameManager.progress = 0;
             if (GameManager.CurrentRun > 0)
+            {
+                _playerShip.ShipDeath();
                 SceneManager.LoadScene("Upgrade");
-            _playerShip.GetComponent<ArcMovement>().enabled = true;
-            StartCoroutine(WaitForThreeSecond());
+            }
+            else
+            {
+                _playerShip.GetComponent<ArcMovement>().enabled = true;
+                StartCoroutine(WaitForThreeSecond());
+            }
             
         }
 
@@ -151,7 +157,7 @@ public class CombatManager : MonoBehaviour
     {
         // Attend 1 seconde
         yield return new WaitForSeconds(3f);
-        Destroy(_playerShip.gameObject);
+        _playerShip.ShipDeath();
         SceneManager.LoadScene("Scenes/Tuto");
         
         Debug.Log("1 seconde s'est écoulée !");
