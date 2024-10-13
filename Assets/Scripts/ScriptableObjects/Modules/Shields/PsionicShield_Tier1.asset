@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PsionicShield_Tier1
   m_EditorClassIdentifier: 
   moduleName: Psionic Barrier
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 46600f2c9d5e45f44bb38bed25a5ef8a, type: 3}
   price:
     Resource: 0
     Quantity: 120

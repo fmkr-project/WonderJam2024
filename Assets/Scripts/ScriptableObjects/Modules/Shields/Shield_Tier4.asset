@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shield_Tier4
   m_EditorClassIdentifier: 
   moduleName: Advanced Shields
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 46600f2c9d5e45f44bb38bed25a5ef8a, type: 3}
   price:
     Resource: 0
     Quantity: 100

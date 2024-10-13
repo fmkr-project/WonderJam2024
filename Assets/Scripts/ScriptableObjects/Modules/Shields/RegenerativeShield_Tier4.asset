@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a4a568d3b742c09e5ffe9c1ed0d95a, type: 3}
   m_Name: RegenerativeShield_Tier4
   m_EditorClassIdentifier: 
-  moduleName: Mycological Shield
-  sprite: {fileID: 0}
+  moduleName: Myco Shield
+  sprite: {fileID: 21300000, guid: 46600f2c9d5e45f44bb38bed25a5ef8a, type: 3}
   price:
     Resource: 0
     Quantity: 120
