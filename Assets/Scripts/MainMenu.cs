@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
@@ -8,6 +9,14 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     private PlayerShip _playerShip;
+    private healthBar _healthBar;
+
+    private void Start()
+    {
+        _playerShip = FindObjectOfType<PlayerShip>();
+        _healthBar = FindObjectOfType<healthBar>();
+        _healthBar.UpdateLife();
+    }
 
     public void Jouer()
     {
@@ -34,4 +43,6 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/Tuto");
     }
+    
+    
 }

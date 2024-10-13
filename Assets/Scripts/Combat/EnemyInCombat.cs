@@ -12,6 +12,7 @@ public class EnemyInCombat : MonoBehaviour
     public GameObject circle;
     private PlayerShip _playerShip;
     private Ship _ship;
+    
 
     private void Start()
     {
@@ -40,6 +41,7 @@ public class EnemyInCombat : MonoBehaviour
                     //TODO: maybe add "use of weapon"
                     _playerShip.healthManager.TakeDamage(((Weapon)mod).WeaponDamage);
                     StartCoroutine(FlashDamageEffect(_playerShip));
+                    
                     break;
             }
         }
