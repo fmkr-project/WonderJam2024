@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 365810e475c0ce441953b608ea2f9e83, type: 3}
-  m_Name: EnemyShipLootTable_1
+  m_Name: LootTable_Map2_Boss
   m_EditorClassIdentifier: 
-  minMoneyDrop: 10
-  maxMoneyDrop: 20
-  scrapDropProbability: 20
-  minScrapDrop: 5
-  maxScrapDrop: 10
-  crewDropProbability: 5
-  etherDropProbability: 1
+  minMoneyDrop: 180
+  maxMoneyDrop: 235
+  scrapDropProbability: 100
+  minScrapDrop: 90
+  maxScrapDrop: 110
+  crewDropProbability: 100
+  etherDropProbability: 100
