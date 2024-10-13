@@ -386,7 +386,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Epic Ship Name
+  m_text: Ad Astra
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 779fd6d8b18b7b646bdccf7940f62c6d, type: 2}
   m_sharedMaterial: {fileID: 3091494302804727558, guid: 779fd6d8b18b7b646bdccf7940f62c6d, type: 2}
