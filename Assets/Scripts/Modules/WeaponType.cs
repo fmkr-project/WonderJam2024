@@ -1,5 +1,8 @@
-﻿namespace Modules
+﻿using System;
+
+namespace Modules
 {
+    [Serializable]
     public enum WeaponType
     {
         Laser, // Basic single-target weapon.
