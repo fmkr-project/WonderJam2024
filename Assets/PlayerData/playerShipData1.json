@@ -1,0 +1,21 @@
+{
+    "maxHealth": 200,
+    "modules": [
+        {
+            "_type": 1,
+            "data": 100
+        },
+        {
+            "_type": 1,
+            "data": 50
+        },
+        {
+            "_type": 0,
+            "data": 100
+        },
+        {
+            "_type": 0,
+            "data": 70
+        }
+    ]
+}

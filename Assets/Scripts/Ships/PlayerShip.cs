@@ -94,10 +94,6 @@ namespace Ships
         {
             if (!Inventory.ContainsKey(resource)) return;
             Inventory[resource] -= amount;
-            if (Inventory[resource] <= 0)
-            {
-                Inventory.Remove(resource);
-            }
         }
         
         /// <summary>
