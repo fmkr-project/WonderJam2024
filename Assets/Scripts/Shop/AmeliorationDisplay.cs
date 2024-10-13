@@ -33,7 +33,6 @@ public class AmeliorationDisplay : MonoBehaviour
 
     private void DisplayModules(List<Module> modules)
     {
-        _ship.AddResourceToInventory(Resource.Money, 5000);
         var selectedModules = modules.OrderBy(x => Random.value).Take(4).ToList();
         
         var moduleManager = FindObjectOfType<ModuleManager>();

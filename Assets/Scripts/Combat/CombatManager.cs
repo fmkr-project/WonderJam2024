@@ -4,11 +4,13 @@ using System.Linq;
 using Managers;
 using Modules;
 using Ships;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 using Upgrades;
+using Random = UnityEngine.Random;
 
 public class CombatManager : MonoBehaviour
 {
@@ -35,6 +37,7 @@ public class CombatManager : MonoBehaviour
     {
         _playerShip = FindObjectOfType<PlayerShip>();
         _playerShip.transform.position = spaceShipPosition.position;
+        if (!FindObjectOfType<Fantomes>().IsUnityNull()) _playerShip.transform.localRotation = quaternion.Euler(0,0,math.PI/2);
         _playerShip.transform.localScale = Vector3.one*1.2f;
         _maxPeople = _playerShip.Inventory[Resource.Crew];
         StartCoroutine(SpawnEnemies());
@@ -79,12 +82,23 @@ public class CombatManager : MonoBehaviour
     {
         if (!(enemiesInstantiated.Count >= 1))
         {
-            int numberenemies = Random.Range(1, 1 + _playerShip.Modules.Count / 4);
-            for (int i = 0; i < numberenemies; i++)
+            if (FindObjectOfType<Fantomes>().IsUnityNull())
             {
-                int randomIndex = Random.Range(0, enemies.Count);
-                GameObject enemy = Instantiate(enemies[randomIndex], enemyParent);
-                enemy.transform.localPosition += Vector3.down*(i*2);
+                
+                int numberenemies = Random.Range(1, 1 + _playerShip.Modules.Count / 4);
+                for (int i = 0; i < numberenemies; i++)
+                {
+                    int randomIndex = Random.Range(0, enemies.Count);
+                    GameObject enemy = Instantiate(enemies[randomIndex], enemyParent);
+                    enemy.transform.localPosition += Vector3.down*(i*2);
+                    //enemy.transform.localRotation = Quaternion.Euler(0,0,90);
+                    enemiesInstantiated.Add(enemy);
+                    yield return new WaitForSeconds(0.5f);
+                }
+            }
+            else
+            {
+                GameObject enemy = Instantiate(enemies[0], enemyParent);
                 //enemy.transform.localRotation = Quaternion.Euler(0,0,90);
                 enemiesInstantiated.Add(enemy);
                 yield return new WaitForSeconds(0.5f);
