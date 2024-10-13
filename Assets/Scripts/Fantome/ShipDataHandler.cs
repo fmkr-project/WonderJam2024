@@ -16,6 +16,9 @@ public class ModuleData
         Shield
     }
 
+    public WeaponType _WeaponType;
+    public ShieldType _ShieldType;
+
     public ModuleType _type;
 
     public int data;
@@ -54,9 +57,11 @@ public class ShipDataHandler : MonoBehaviour
             {
                 case Weapon mod1:
                     data.modules.Add(new ModuleData(ModuleData.ModuleType.Weapon,mod1.WeaponDamage));
+                    data.modules[data.modules.Count - 1]._WeaponType = mod1.WeaponType;
                     break;
                 case Shield mod1 :
                     data.modules.Add(new ModuleData(ModuleData.ModuleType.Shield,mod1.ShieldHealth));
+                    data.modules[data.modules.Count - 1]._ShieldType = mod1.ShieldType;
                     break;
             }
         }
@@ -93,11 +98,11 @@ public class ShipDataHandler : MonoBehaviour
             switch (modData._type)
             {
                 case ModuleData.ModuleType.Weapon:
-                    var weapon = new Weapon { WeaponDamage = modData.data };
+                    var weapon = new Weapon { WeaponDamage = modData.data, WeaponType = modData._WeaponType};
                     enemyShip.Modules.Add(weapon);
                     break;
                 case ModuleData.ModuleType.Shield:
-                    var shield = new Shield { ShieldHealth = modData.data };
+                    var shield = new Shield { ShieldHealth = modData.data, ShieldType = modData._ShieldType};
                     enemyShip.Modules.Add(shield);
                     break;
             }
