@@ -25,7 +25,9 @@ public class ShopDialog : MonoBehaviour
                 while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
                 DialogueManager.PushDialogue("On the upper left, you can find new weapons to add to your arsenal!", DialogueParts.Player);
                 while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
-                DialogueManager.PushDialogue("In the right corner, you will find ways to improve your weapons, making them more efficient, Beware, you won't obtain anything directly, but theses buffs could lead you to have powerful weapons", DialogueParts.Player);
+                DialogueManager.PushDialogue("In the right corner, you will find ways to improve your weapons, making them more efficient", DialogueParts.Player);
+                while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
+                DialogueManager.PushDialogue("Beware, you won't obtain anything directly, but theses buffs could lead you to have powerful weapons", DialogueParts.Player);
                 while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
                 DialogueManager.PushDialogue("In the middle, you can trade your coins to recruit some crewmates, or use  your scraps to repair your ship", DialogueParts.Player);
                 while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
