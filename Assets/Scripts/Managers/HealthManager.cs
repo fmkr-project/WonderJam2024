@@ -114,6 +114,7 @@ namespace Managers
                 case EnemyShip enemyShip:
                     foreach (KeyValuePair<Resource, int> loot in enemyShip.Loot)
                     {
+                        print(loot);
                         _playerShip.AddResourceToInventory(loot.Key, loot.Value);
                     }
                     enemyShip.ShipDeath();

@@ -18,9 +18,14 @@ public class Fantomes : MonoBehaviour
 
     public void End()
     {
-        SceneManager.LoadScene("SceneCombatFantome");
         if (GameManager.CurrentRun == GameManager.currentBossRush)
+        {
             SceneManager.LoadScene("End");
+        }
+        else
+        {
+            SceneManager.LoadScene("SceneCombatFantome");
+        }
     }
 
     // Update is called once per frame
