@@ -27,7 +27,6 @@ public class RedZoneKill : MonoBehaviour
             {
                 FindObjectOfType<PlayerShip>().ShipDeath();
                 _gameOver = true;
-                Time.timeScale = 0;
                 SceneManager.LoadScene("DeathRebirth");
             }
         }

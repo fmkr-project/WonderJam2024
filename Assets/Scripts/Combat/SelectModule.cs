@@ -35,11 +35,14 @@ public class SelectModule : MonoBehaviour
         //DontDestroyOnLoad(gameObject); 
     }
 
-
-    private void Update()
+    public void UpdateEnemies()
     {
         if (_enemyInCombats.IsUnityNull()||_enemyInCombats.Length==0)
             _enemyInCombats = FindObjectsOfType<EnemyInCombat>();
+    }
+
+    private void Update()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
