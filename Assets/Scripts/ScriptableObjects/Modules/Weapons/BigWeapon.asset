@@ -18,5 +18,5 @@ MonoBehaviour:
     Resource: 0
     Quantity: 0
   requiredCrew: 3
-  weaponDamage: 100
+  weaponDamage: 300
   weaponType: 0

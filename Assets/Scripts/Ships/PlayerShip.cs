@@ -1,15 +1,21 @@
 using System.Collections.Generic;
+using System.Linq;
+using Managers;
+using Modules;
+using UnityEngine;
 
 namespace Ships
 {
     public class PlayerShip : Ship
     {
+
         #region References
 
         #endregion
         
         #region Getters and Setters
 
+        public static PlayerShip Instance { get; private set; }
         internal Dictionary<Resource, int> Inventory { get; } = new();
 
         #endregion
@@ -17,13 +23,27 @@ namespace Ships
         #region Methods
         
         // Start is called before the first frame update
-        private void Start()
+        private void Awake()
         {
+            if (Instance != null && Instance != this)
+            {
+                Destroy(Instance.gameObject);
+                Instance = this;
+            }
+            else
+            {
+                if(Instance == null)
+                    Instance = this;
+                else 
+                    Destroy(gameObject);
+            }
+            GameManager.CurrentPlayerShip = this;
             ShipInitialization();
             AddResourceToInventory(Resource.Money, 0);
             AddResourceToInventory(Resource.Crew, 0);
             AddResourceToInventory(Resource.Scrap, 0);
             AddResourceToInventory(Resource.Ether, 0);
+            DontDestroyOnLoad(gameObject);
         }
 
         // Update is called once per frame
@@ -87,6 +107,7 @@ namespace Ships
         {
             return ChecksIfPlayerHasEnoughOfTheGivenResource(ra.Resource, ra.Quantity);
         }
+        
         
         #endregion
     }
