@@ -460,7 +460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyShipScriptableObject: {fileID: 11400000, guid: d7d87234047bfc54b86ef4aeecd667bc, type: 2}
   money: 100
-  crew: 2
+  crew: 50
 --- !u!1 &304113047
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,7 +44,7 @@ public class ShipDataHandler : MonoBehaviour
     public PlayerShipData data;
     public void SavePlayerShipData()
     {
-        string pathSave = Path.Combine(Application.dataPath +"\\PlayerData", "playerShipData"+ GameManager.CurrentRun +".json");
+        string pathSave = Path.Combine(Application.dataPath +"\\PlayerData", "playerShipData"+ (GameManager.CurrentRun -1) +".json");
         PlayerShip playerShip;
         playerShip = FindObjectOfType<PlayerShip>();
         data = new PlayerShipData(playerShip.MaxHealth);

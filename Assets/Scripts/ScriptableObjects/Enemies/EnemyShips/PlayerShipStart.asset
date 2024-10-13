@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bed0ab96ec5d4c40b7573af8f79df13, type: 3}
   m_Name: PlayerShipStart
   m_EditorClassIdentifier: 
-  health: 100
-  maxHealth: 100
+  health: 50000
+  maxHealth: 50000
   temporaryHealth: 0
   sprite: {fileID: 21300000, guid: e72b5607b24dd3247a7168ad745086fb, type: 3}
   shieldModules: []
   weaponModules:
   - {fileID: 11400000, guid: 8e146534cd5a93c44b4a29d307768411, type: 2}
+  - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
+  - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
+  - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}
+  - {fileID: 11400000, guid: 84df32402ca1f3b49a6ba05ab64afb25, type: 2}

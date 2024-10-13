@@ -78,8 +78,9 @@ public class CombatManager : MonoBehaviour
     {
         if (!(enemiesInstantiated.Count >= 1))
         {
-            int randomIndex = Random.Range(0, enemiesInstantiated.Count);
+            int randomIndex = Random.Range(0, enemies.Count);
             GameObject enemy = Instantiate(enemies[randomIndex], enemyParent);
+            //enemy.transform.localRotation = Quaternion.Euler(0,0,90);
             enemiesInstantiated.Add(enemy);
             yield return new WaitForSeconds(0.5f);
             
@@ -147,14 +148,14 @@ public class CombatManager : MonoBehaviour
             if (GameManager.CurrentRun > 0)
             {
                 _playerShip.ShipDeath();
-                SceneManager.LoadScene("Upgrade");
+                SceneManager.LoadScene("DeathRebirth");
             }
             else
             {
                 _playerShip.GetComponent<ArcMovement>().enabled = true;
                 StartCoroutine(WaitForThreeSecond());
             }
-            
+            return;
         }
 
         if (!checkEnemies())
@@ -162,10 +163,17 @@ public class CombatManager : MonoBehaviour
             //TODO : You win;
             var fant = FindObjectOfType<Fantomes>();
             if(!fant.IsUnityNull())
+            {
                 fant.End();
-            if (GameManager.progress == 0)
-                SceneManager.LoadScene("Fantome");
-            SceneManager.LoadScene("Map/MAP 2");
+            }
+            else
+            {
+                if (GameManager.progress == 0)
+                    SceneManager.LoadScene("SceneCombatFantome");
+                else 
+                    SceneManager.LoadScene("Map/MAP 2");
+                
+            }
         }
     }
     
