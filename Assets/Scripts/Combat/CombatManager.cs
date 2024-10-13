@@ -33,6 +33,9 @@ public class CombatManager : MonoBehaviour
     private PlayerShip _playerShip;
     private bool win;
 
+    public AudioSource AudioSource;
+    private healthBar _healthBar;
+
     private void Start()
     {
         _playerShip = FindObjectOfType<PlayerShip>();
@@ -41,6 +44,7 @@ public class CombatManager : MonoBehaviour
         _playerShip.transform.localScale = Vector3.one*1.2f;
         _maxPeople = _playerShip.Inventory[Resource.Crew];
         StartCoroutine(SpawnEnemies());
+        _healthBar = FindObjectOfType<healthBar>();
         SpawnModules();
     }
 
@@ -139,6 +143,7 @@ public class CombatManager : MonoBehaviour
             
         }
 
+        _healthBar.UpdateLife();
         StartCoroutine(StartEnemyTurn());
     }
 
@@ -149,6 +154,9 @@ public class CombatManager : MonoBehaviour
             if(enemyGameobject.IsUnityNull()) continue;
             if(enemyGameobject.TryGetComponent(out EnemyInCombat enemy))
                 enemy.TakeAction(); // Enemy's action
+            AudioSource.Play();
+            _healthBar.UpdateLife();
+            
             yield return new WaitForSeconds(0.5f);
         }
 
