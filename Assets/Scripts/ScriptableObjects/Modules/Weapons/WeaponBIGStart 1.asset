@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f4e0f8e96014b1da3851892a822af48, type: 3}
-  m_Name: BigWeapon
+  m_Name: WeaponBIGStart 1
   m_EditorClassIdentifier: 
   moduleName: bigweapon
-  sprite: {fileID: 21300000, guid: 1a66969665b53d447bf2bd675b3ad9da, type: 3}
+  sprite: {fileID: 21300000, guid: f94df059a55ade342918fe7d0e8c2299, type: 3}
   price:
     Resource: 0
     Quantity: 0
-  requiredCrew: 3
-  weaponDamage: 300
+  requiredCrew: 4
+  weaponDamage: 100
   weaponType: 0

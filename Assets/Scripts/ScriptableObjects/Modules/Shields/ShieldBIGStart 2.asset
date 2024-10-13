@@ -9,14 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f4e0f8e96014b1da3851892a822af48, type: 3}
-  m_Name: BigWeapon
+  m_Script: {fileID: 11500000, guid: 58a4a568d3b742c09e5ffe9c1ed0d95a, type: 3}
+  m_Name: ShieldBIGStart 2
   m_EditorClassIdentifier: 
-  moduleName: bigweapon
-  sprite: {fileID: 21300000, guid: 1a66969665b53d447bf2bd675b3ad9da, type: 3}
+  moduleName: bigshield
+  sprite: {fileID: 21300000, guid: 46600f2c9d5e45f44bb38bed25a5ef8a, type: 3}
   price:
     Resource: 0
     Quantity: 0
-  requiredCrew: 3
-  weaponDamage: 300
-  weaponType: 0
+  requiredCrew: 4
+  shieldHealth: 50
