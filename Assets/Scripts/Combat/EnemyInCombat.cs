@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class EnemyInCombat : MonoBehaviour
 {
+    public GameObject circle;
     private PlayerShip _playerShip;
     private Ship _ship;
 

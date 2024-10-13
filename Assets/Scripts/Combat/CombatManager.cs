@@ -31,6 +31,7 @@ public class CombatManager : MonoBehaviour
     {
         _playerShip = FindObjectOfType<PlayerShip>();
         _playerShip.transform.position = spaceShipPosition.position;
+        _playerShip.transform.localScale = Vector3.one*1.2f;
         _maxPeople = _playerShip.Inventory[Resource.Crew];
         StartCoroutine(SpawnEnemies());
         SpawnModules();
