@@ -78,10 +78,7 @@ public class EnemyInCombat : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
-    {
-        _playerShip.GetComponent<SpriteRenderer>().color=Color.white;
-    }
+    
 
     public IEnumerator FlashDamageEffect(Ship ship)
     {
