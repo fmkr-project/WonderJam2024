@@ -24,7 +24,8 @@ public class CreateShieldCombat : MonoBehaviour
 
         ShieldInCombat stats = GetComponent<ShieldInCombat>();
         stats.squareValue = module.RequiredCrew;
-        stats.shieldIC = module.ShieldHealth;
+        stats.shieldHealth = module.ShieldHealth;
+        stats.shieldType = module.ShieldType;
     }
     
 }

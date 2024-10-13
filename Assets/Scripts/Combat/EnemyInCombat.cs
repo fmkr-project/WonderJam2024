@@ -89,14 +89,14 @@ public class EnemyInCombat : MonoBehaviour
                         
                         case WeaponType.Disruptor:
                             projectile = Resources.Load<Sprite>("Particles (Sprites)/Small Flare");
-                            if (_playerShip.TemporaryHealth == 0) continue;
-                            _playerShip.healthManager.TakeShieldDamage(weaponDamage);
+                            if (_playerShip.TemporaryHealth != 0)
+                                _playerShip.healthManager.TakeShieldDamage(weaponDamage);
                             break;
                         
                         case WeaponType.ArcEmitter:
                             projectile = Resources.Load<Sprite>("Particles (Sprites)/BigFlare");
-                            if (_playerShip.TemporaryHealth == 0) continue;
-                            _playerShip.healthManager.TakeShieldDamage(weaponDamage);
+                            if (_playerShip.TemporaryHealth != 0)
+                                _playerShip.healthManager.TakeShieldDamage(weaponDamage);
                             break;
                         
                         case WeaponType.Autocannon:
