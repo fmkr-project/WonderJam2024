@@ -6,6 +6,7 @@ using Modules;
 using Ships;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
 using Upgrades;
 
@@ -158,6 +159,9 @@ public class CombatManager : MonoBehaviour
         if (!checkEnemies())
         {
             //TODO : You win;
+            var fant = FindObjectOfType<Fantomes>();
+            if(!fant.IsUnityNull())
+                fant.End();
             if (GameManager.progress == 0)
                 SceneManager.LoadScene("Fantome");
             SceneManager.LoadScene("Map/MAP 2");
