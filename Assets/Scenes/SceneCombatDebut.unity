@@ -862,7 +862,8 @@ Transform:
   m_LocalPosition: {x: -355.1013, y: -305.72552, z: 0}
   m_LocalScale: {x: 4.88, y: 4.88, z: 4.88}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 616078343}
   m_Father: {fileID: 887477809}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &351837455
@@ -929,6 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a09bee8c6158e5642b3b7fa40d68e5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  circle: {fileID: 616078342}
 --- !u!114 &351837457
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +945,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthManager: {fileID: 0}
   moduleManager: {fileID: 0}
-  enemyShipLootTableScriptableObject: {fileID: 11400000, guid: a99b8e5b73b917f4db0e77405d4a503d, type: 2}
+  enemyShipLootTableScriptableObject: {fileID: 11400000, guid: 90e8cdbe1a4142745a682a2cb98be2fc, type: 2}
   enemyShipScriptableObject: {fileID: 11400000, guid: 420ef2352053fc04daf151bc03b3535a, type: 2}
 --- !u!61 &351837458
 BoxCollider2D:
@@ -1320,6 +1322,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566436427}
   m_CullTransparentMesh: 1
+--- !u!1 &616078342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 616078343}
+  - component: {fileID: 616078344}
+  m_Layer: 0
+  m_Name: cerclerouge_ms_1-removebg-preview
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &616078343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616078342}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -0.0374, y: -0.755, z: 0}
+  m_LocalScale: {x: 0.42879087, y: 0.54520476, z: 0.20491803}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 351837454}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &616078344
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616078342}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 834af56a38dc54f479ae1d4ac3e8bf69, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 6.91, y: 3.61}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &654039683
 GameObject:
   m_ObjectHideFlags: 0
@@ -4357,7 +4443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b200f49b0fb3b104ca8f313a470a8e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceShipPosition: {fileID: 0}
+  spaceShipPosition: {fileID: 778315648}
   enemyParent: {fileID: 887477809}
   weaponSelectionMenu: {fileID: 1373853061}
   enemies: []
