@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2854066151756157622}
   - component: {fileID: 4982743475453465532}
   m_Layer: 0
-  m_Name: Circle (1)
+  m_Name: T1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.735849, g: 0.21867211, b: 0.21867211, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -102,8 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthManager: {fileID: 0}
   moduleManager: {fileID: 0}
-  enemyShipLootTableScriptableObject: {fileID: 11400000, guid: a99b8e5b73b917f4db0e77405d4a503d, type: 2}
-  enemyShipScriptableObject: {fileID: 11400000, guid: 420ef2352053fc04daf151bc03b3535a, type: 2}
+  enemyShipLootTableScriptableObject: {fileID: 11400000, guid: 6b2e8eb283c54a64590f59dcc92e2ef1, type: 2}
+  enemyShipScriptableObject: {fileID: 11400000, guid: 03e124534db166f499a55b81c0960e0b, type: 2}
 --- !u!114 &2006060931599919762
 MonoBehaviour:
   m_ObjectHideFlags: 0

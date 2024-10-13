@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RedZoneKill : MonoBehaviour
 {
@@ -25,7 +26,7 @@ public class RedZoneKill : MonoBehaviour
             {
                 _gameOver = true;
                 Time.timeScale = 0;
-                print("gameOver");
+                SceneManager.LoadScene("DeathRebirth");
             }
         }
 

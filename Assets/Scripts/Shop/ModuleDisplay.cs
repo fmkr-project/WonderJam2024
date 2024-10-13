@@ -48,7 +48,6 @@ public class ModuleDisplay : MonoBehaviour
             
             buyButton.onClick.AddListener(() =>
             {
-                moduleManager.BuyModule(module); 
                 bool purchaseSuccessful = moduleManager.BuyModule(module);
                 if (purchaseSuccessful)
                 {
