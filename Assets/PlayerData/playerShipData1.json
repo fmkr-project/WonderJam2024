@@ -1,21 +1,17 @@
 {
-    "maxHealth": 200,
+    "maxHealth": 150,
     "modules": [
         {
-            "_type": 0,
-            "data": 10
-        },
-        {
-            "_type": 0,
-            "data": 45
-        },
-        {
+            "_WeaponType": 0,
+            "_ShieldType": 0,
             "_type": 1,
             "data": 10
         },
         {
+            "_WeaponType": 0,
+            "_ShieldType": 0,
             "_type": 0,
-            "data": 7
+            "data": 20
         }
     ]
 }
