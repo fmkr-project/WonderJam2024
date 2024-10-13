@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Managers;
+using Modules;
 using Ships;
 using UnityEditor;
 using UnityEngine;
@@ -11,6 +12,7 @@ using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
 using Upgrades;
+using Upgrades.Combat.Modules;
 using Image = UnityEngine.UI.Image;
 
 
@@ -128,6 +130,38 @@ public class SelectModule : MonoBehaviour
         _selectedWeapon.enemy = enemy;
         var _ship = _selectedWeapon.enemy.GetComponent<EnemyShip>();
         var enemyinCombat = _selectedWeapon.enemy.GetComponent<EnemyInCombat>();
+
+        Sprite projectile;
+        switch (_selectedWeapon.weaponType)
+        {
+            case WeaponType.Laser:
+                projectile = Resources.Load<Sprite>("Particles (Sprites)/Beam");
+                break;
+            case WeaponType.PlasmaThrower:
+                projectile = Resources.Load<Sprite>("Particles (Sprites)/Projectile Sharp");
+                break;
+            case WeaponType.Disruptor:
+                projectile = Resources.Load<Sprite>("Particles (Sprites)/Small Flare");
+                break;
+            case WeaponType.ArcEmitter:
+                projectile = Resources.Load<Sprite>("Particles (Sprites)/BigFlare");
+                break;
+            case WeaponType.Autocannon:
+                projectile = Resources.Load<Sprite>("Particles (Sprites)/Projectile Thin");
+                break;
+            case WeaponType.Missiles:
+                projectile = Resources.Load<Sprite>("Missiles/Missile (1)");
+                break;
+            case WeaponType.Torpedoes:
+                projectile = Resources.Load<Sprite>("Missiles/Missile (3)");
+                break;
+            default:
+                projectile = Resources.Load<Sprite>("Particles (Sprites)/Projectile Sharp");
+                break;
+        }
+        // Animate projectile
+        StartCoroutine(ProjectileAnimation.Animate(projectile, PlayerShip.Instance.transform.position, enemy.transform.position, 0.25f));
+
         StartCoroutine(enemyinCombat.FlashDamageEffect(_ship));
         _selectedWeapon = null;
         foreach (var enemyInCombat in _enemyInCombats)

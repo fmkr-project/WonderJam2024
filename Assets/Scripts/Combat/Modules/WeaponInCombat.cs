@@ -1,5 +1,6 @@
 using System;
 using Managers;
+using Modules;
 using Ships;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class WeaponInCombat : ModuleInCombat
 {
     public bool isTicked = false;
     public int atk;
+    public WeaponType weaponType;
     public GameObject enemy;
     private EnemyShip _ship;
     private EnemyInCombat _enemyInCombat;
@@ -23,6 +25,8 @@ public class WeaponInCombat : ModuleInCombat
         
         
     }
+    
+    
 
     public override void Reset()
     {
