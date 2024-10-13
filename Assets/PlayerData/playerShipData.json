@@ -1,0 +1,12 @@
+{
+    "maxHealth": 100,
+    "spritePath": {
+        "instanceID": 32308
+    },
+    "modules": [
+        {
+            "_type": 0,
+            "data": 10
+        }
+    ]
+}

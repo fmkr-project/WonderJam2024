@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 namespace Modules
 {
+    [Serializable]
     public class Module
     {
         #region References

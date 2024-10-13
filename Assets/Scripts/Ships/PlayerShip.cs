@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Managers;
@@ -44,6 +45,12 @@ namespace Ships
             AddResourceToInventory(Resource.Scrap, 0);
             AddResourceToInventory(Resource.Ether, 0);
             DontDestroyOnLoad(gameObject);
+        }
+
+        private void OnDestroy()
+        {
+            GameManager.ether = Inventory[Resource.Ether];
+            gameObject.AddComponent<ShipDataHandler>().SavePlayerShipData();
         }
 
         // Update is called once per frame
