@@ -12,6 +12,10 @@ namespace Managers
 
         public static List<RebirthUpgrade> RebirthUpgrades = new();
 
+        public static float progress;
+        public static string map= "";
+        public static GameObject currentShipPosition;
+
         public static void NewGame()
         {
             CurrentRun = 1;

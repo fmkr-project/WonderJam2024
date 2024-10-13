@@ -20,7 +20,7 @@ public class Connect : MonoBehaviour
         }
 
         Instance = this; 
-        DontDestroyOnLoad(gameObject); 
+        //DontDestroyOnLoad(gameObject); 
     }
 
     public void MakeDistance()

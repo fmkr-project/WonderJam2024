@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bed0ab96ec5d4c40b7573af8f79df13, type: 3}
-  m_Name: EnemyShipImpossible
+  m_Name: PlayerShipStart
   m_EditorClassIdentifier: 
-  health: 1000
-  maxHealth: 1000
+  health: 100
+  maxHealth: 100
   temporaryHealth: 0
-  sprite: {fileID: 21300000, guid: 19ea3c87eb07d7f429b7164c647f167f, type: 3}
-  shieldModules:
-  - {fileID: 11400000, guid: a4f05f1587c435943908e9318adabb04, type: 2}
-  weaponModules:
-  - {fileID: 11400000, guid: fb86120d5f413a644a97910f3dac3196, type: 2}
+  sprite: {fileID: 21300000, guid: e72b5607b24dd3247a7168ad745086fb, type: 3}
+  shieldModules: []
+  weaponModules: []

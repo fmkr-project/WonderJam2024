@@ -16,7 +16,7 @@ public class EnemyInCombat : MonoBehaviour
         _ship = gameObject.GetComponent<Ship>();
         GetComponent<SpriteRenderer>().sprite = _ship.Sprite;
         _playerShip = FindObjectOfType<PlayerShip>();
-        FindObjectOfType<AddsomeModules>().add();
+        //FindObjectOfType<AddsomeModules>().add();
     }
 
     private void OnMouseDown()
