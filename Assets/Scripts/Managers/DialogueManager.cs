@@ -133,13 +133,14 @@ namespace Managers
             
             // Initialize dialogue internals
             _dialogueSurface = GameObject.Find("DialogueBoxBg");
+            _dialogueSurface.transform.localScale = Vector3.zero;
             _dialogueText = GameObject.Find("DialogueBoxText").GetComponent<TextMeshProUGUI>();
-            _dialogueText.transform.localScale = Vector3.zero;
             _dialogueArrow = GameObject.Find("DialogueBoxArrow");
             _dialogueArrow.SetActive(false);
             
             // Initialize loot internals
             _lootSurface = GameObject.Find("LootBoxBg");
+            _lootSurface.transform.localScale = Vector3.zero;
             _lootText = GameObject.Find("LootBoxText").GetComponent<TextMeshProUGUI>();
             _lootImage = GameObject.Find("LootBoxImage").GetComponent<Image>();
         }
@@ -151,7 +152,7 @@ namespace Managers
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             PushDialogue("AZERTYUIOPQSDFGHJKLMWXCVBN", DialogueParts.Enemy);
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
-            PushDialogue("Never gonna give you up, never gonna let you down", DialogueParts.Player);
+            PushDialogue("Never gonna give you up, never gonna let you down, lorem ipsum dolor sit amet, lorem ipsum dolor sit amet' or 1 == 1;", DialogueParts.Player);
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             
             StartCoroutine(CloseDialogueBox());
