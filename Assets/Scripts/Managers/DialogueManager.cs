@@ -2,6 +2,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Managers
 {
@@ -16,6 +17,7 @@ namespace Managers
         private static TMP_FontAsset _playerFont;
         private static TMP_FontAsset _enemyFont;
         
+        // Dialogue box
         private static GameObject _dialogueSurface;
         private static TextMeshProUGUI _dialogueText;
         private static GameObject _dialogueArrow;
@@ -25,6 +27,11 @@ namespace Managers
         private static bool _blockDialoguePrinting = false;
         private static int _i;
         private static string _dialogueTextContents;
+        
+        // Loot pop-up
+        private static GameObject _lootSurface;
+        private static TextMeshProUGUI _lootText;
+        private static Image _lootImage;
         
         // Time & animation
         private static float _dialogueOpenCloseTime = .75f;
@@ -48,6 +55,30 @@ namespace Managers
             }
 
             _blockDialoguePrinting = false;
+        }
+
+        public static IEnumerator OpenLootBox()
+        {
+            var elapsed = 0f;
+            var deltaTime = Time.deltaTime;
+            while (elapsed < _dialogueOpenCloseTime)
+            {
+                elapsed += deltaTime;
+                _lootSurface.transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one, elapsed / _dialogueOpenCloseTime);
+                yield return new WaitForSeconds(deltaTime);
+            }
+        }
+
+        public static IEnumerator CloseLootBox()
+        {
+            var elapsed = 0f;
+            var deltaTime = Time.deltaTime;
+            while (elapsed < _dialogueOpenCloseTime)
+            {
+                elapsed += deltaTime;
+                _lootSurface.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, elapsed / _dialogueOpenCloseTime);
+                yield return new WaitForSeconds(deltaTime);
+            }
         }
 
         public static IEnumerator CloseDialogueBox()
@@ -100,20 +131,29 @@ namespace Managers
             _playerFont = Resources.Load<TMP_FontAsset>("Fonts/KH-DOT-AKIHABARA-16 SDF");
             _enemyFont = Resources.Load<TMP_FontAsset>("Fonts/KH-DOT-DOUGENZAKA-16 SDF");
             
+            // Initialize dialogue internals
             _dialogueSurface = GameObject.Find("DialogueBoxBg");
             _dialogueText = GameObject.Find("DialogueBoxText").GetComponent<TextMeshProUGUI>();
+            _dialogueText.transform.localScale = Vector3.zero;
             _dialogueArrow = GameObject.Find("DialogueBoxArrow");
             _dialogueArrow.SetActive(false);
+            
+            // Initialize loot internals
+            _lootSurface = GameObject.Find("LootBoxBg");
+            _lootText = GameObject.Find("LootBoxText").GetComponent<TextMeshProUGUI>();
+            _lootImage = GameObject.Find("LootBoxImage").GetComponent<Image>();
         }
 
         IEnumerator Start()
         {
             StartCoroutine(OpenDialogueBox());
+            
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             PushDialogue("AZERTYUIOPQSDFGHJKLMWXCVBN", DialogueParts.Enemy);
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
             PushDialogue("Never gonna give you up, never gonna let you down", DialogueParts.Player);
             while (_blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);
+            
             StartCoroutine(CloseDialogueBox());
         }
 
