@@ -1665,6 +1665,7 @@ GameObject:
   - component: {fileID: 778315647}
   - component: {fileID: 778315649}
   - component: {fileID: 778315646}
+  - component: {fileID: 778315650}
   m_Layer: 0
   m_Name: Playership
   m_TagString: Untagged
@@ -1768,6 +1769,20 @@ MonoBehaviour:
   enemyShipScriptableObject: {fileID: 11400000, guid: 0b22e6562f577bd4894e039b3f335fff, type: 2}
   money: 10000
   crew: 25
+--- !u!114 &778315650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778315645}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c6a815f73a1bfd48bc62ebdbf3d4d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSpeed: 6
+  gravity: 9.81
 --- !u!1 &887477808
 GameObject:
   m_ObjectHideFlags: 0
@@ -4342,7 +4357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b200f49b0fb3b104ca8f313a470a8e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spaceShip: {fileID: 0}
+  spaceShipPosition: {fileID: 0}
   enemyParent: {fileID: 887477809}
   weaponSelectionMenu: {fileID: 1373853061}
   enemies: []
