@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58a4a568d3b742c09e5ffe9c1ed0d95a, type: 3}
-  m_Name: PsionicShield_Tier2
+  m_Script: {fileID: 11500000, guid: 0f4e0f8e96014b1da3851892a822af48, type: 3}
+  m_Name: Laser_Tier2
   m_EditorClassIdentifier: 
-  moduleName: Psionic Shield
+  moduleName: 
   sprite: {fileID: 0}
   price:
     Resource: 0
-    Quantity: 230
-  requiredCrew: 6
-  shieldType: 3
-  shieldHealth: 85
+    Quantity: 0
+  requiredCrew: 0
+  weaponDamage: 0
+  weaponType: 0
