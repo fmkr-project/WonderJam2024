@@ -130,6 +130,8 @@ public class SelectModule : MonoBehaviour
         _selectedWeapon.enemy = enemy;
         var _ship = _selectedWeapon.enemy.GetComponent<EnemyShip>();
         var enemyinCombat = _selectedWeapon.enemy.GetComponent<EnemyInCombat>();
+        _selectedWeapon._enemyShip = _ship;
+        _selectedWeapon._enemyInCombat = enemyinCombat;
 
         Sprite projectile;
         switch (_selectedWeapon.weaponType)
