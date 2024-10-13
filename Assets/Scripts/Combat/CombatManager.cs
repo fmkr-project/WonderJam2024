@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Managers;
 using Modules;
 using Ships;
@@ -70,15 +71,17 @@ public class CombatManager : MonoBehaviour
                 
             }
     }
+
     private IEnumerator SpawnEnemies()
     {
-        if (!(enemiesInstantiated.Count >= 1)) 
-            foreach(var enemyPrefab in enemies)
-            {
-                GameObject enemy = Instantiate(enemyPrefab, enemyParent);
-                enemiesInstantiated.Add(enemy);
-                yield return new WaitForSeconds(0.5f); // Delay between each enemy
-            }
+        if (!(enemiesInstantiated.Count >= 1))
+        {
+            int randomIndex = Random.Range(0, enemiesInstantiated.Count);
+            GameObject enemy = Instantiate(enemiesInstantiated[randomIndex], enemyParent);
+            enemiesInstantiated.Add(enemy);
+            yield return new WaitForSeconds(0.5f);
+            
+        }
         StartPlayerTurn(); // Start the player's turn
     }
 
@@ -129,9 +132,15 @@ public class CombatManager : MonoBehaviour
             GameManager.progress = 0;
             if (GameManager.CurrentRun > 0)
                 SceneManager.LoadScene("Upgrade");
+<<<<<<< Updated upstream
            // _playerShip.GetComponent<ArcMovement>().enabled = true;
            Destroy(_playerShip.gameObject);
            SceneManager.LoadScene("Scenes/Tuto");
+=======
+            _playerShip.GetComponent<ArcMovement>().enabled = true;
+            StartCoroutine(WaitForThreeSecond());
+            
+>>>>>>> Stashed changes
         }
 
         if (!checkEnemies())
@@ -139,6 +148,15 @@ public class CombatManager : MonoBehaviour
             //TODO : You win;
             SceneManager.LoadScene("Map/MAP 2");
         }
+    }
+    
+    private IEnumerator WaitForThreeSecond()
+    {
+        // Attend 1 seconde
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Scenes/Tuto");
+        
+        Debug.Log("1 seconde s'est écoulée !");
     }
 
     private bool checkEnemies()
