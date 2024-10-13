@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Autocannon_Tier2
   m_EditorClassIdentifier: 
   moduleName: Ripper Autocannon
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 677b4bafa69a3f24b904f82f7fc3deee, type: 3}
   price:
     Resource: 0
     Quantity: 85

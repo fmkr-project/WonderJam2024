@@ -5,7 +5,9 @@ using Managers;
 using Ships;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using Upgrades;
 
 public class Map : MonoBehaviour
 {
@@ -66,27 +68,32 @@ public class Map : MonoBehaviour
     public void Go()
     {
         //currentShip.GetComponent<RedZoneKill>().enabled = false;
-        print(currentShip.transform.position);
         currentShip = select.gameObject;
-        print(currentShip.transform.position);
         if (currentShip == finish)
         {
+            print("BossFight !");
             GameManager.progress = 0;
-            GameManager.currentShipPosition = new Vector3();
+            GameManager.currentShipPosition = Vector3.zero;
+            SceneManager.LoadScene("SceneCombatBoss");
             //TODO : changer le currentship dans le manager + la map + le progress
         }
-        
-        GameManager.progress = progress+(float)0.5;
-        GameManager.currentShipPosition = currentShip.transform.position;
-        StartCoroutine(DansUneSeconde());
-
-        IEnumerator DansUneSeconde()
+        else
         {
-            yield return new WaitForSeconds(0.5f);
-            ship.transform.localScale = new Vector3(1,1,1);
-        }
+            int buffer = 1;
+            foreach (RebirthUpgrade upgrade in GameManager.RebirthUpgrades)
+            {
+                if (upgrade.Name == "LessRedzone")
+                {
+                    buffer++;
+                }
+            }
 
-        select.ChangeAction();
+            GameManager.progress = progress+(float)0.5/buffer;
+            GameManager.currentShipPosition = currentShip.transform.position;
+        
+
+            select.ChangeAction();
+        }
     }
 
 

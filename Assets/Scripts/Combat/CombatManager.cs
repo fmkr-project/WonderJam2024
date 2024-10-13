@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Managers;
 using Modules;
 using Ships;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 using UnityEngine.SceneManagement;
+using Upgrades;
 
 public class CombatManager : MonoBehaviour
 {
@@ -26,11 +29,13 @@ public class CombatManager : MonoBehaviour
     public List<GameObject> modulesPrefabs; // same order as in modulesParents
     [SerializeField] private int _maxPeople; // Peoples retrieves from the ship
     private PlayerShip _playerShip;
+    private bool win;
 
     private void Start()
     {
         _playerShip = FindObjectOfType<PlayerShip>();
         _playerShip.transform.position = spaceShipPosition.position;
+        _playerShip.transform.localScale = Vector3.one*1.2f;
         _maxPeople = _playerShip.Inventory[Resource.Crew];
         StartCoroutine(SpawnEnemies());
         SpawnModules();
@@ -69,20 +74,39 @@ public class CombatManager : MonoBehaviour
                 
             }
     }
+
     private IEnumerator SpawnEnemies()
     {
-        if (!(enemiesInstantiated.Count >= 1)) 
-            foreach(var enemyPrefab in enemies)
+        if (!(enemiesInstantiated.Count >= 1))
+        {
+            int numberenemies = Random.Range(1, 1 + _playerShip.Modules.Count / 4);
+            for (int i = 0; i < numberenemies; i++)
             {
-                GameObject enemy = Instantiate(enemyPrefab, enemyParent);
+                int randomIndex = Random.Range(0, enemies.Count);
+                GameObject enemy = Instantiate(enemies[randomIndex], enemyParent);
+                enemy.transform.localPosition += Vector3.down*(i*2);
+                //enemy.transform.localRotation = Quaternion.Euler(0,0,90);
                 enemiesInstantiated.Add(enemy);
-                yield return new WaitForSeconds(0.5f); // Delay between each enemy
+                yield return new WaitForSeconds(0.5f);
             }
+        }
+        SelectModule.Instance.UpdateEnemies();
         StartPlayerTurn(); // Start the player's turn
     }
 
     private void StartPlayerTurn()
     {
+        if (_playerShip.Health < 0 || win) return;
+        double buffer = 1;
+        foreach (RebirthUpgrade upgrade in GameManager.RebirthUpgrades)
+        {
+            if (upgrade.Name == "ShieldRegen")
+            {
+                buffer -= 0.1;
+            }
+        }
+
+        _playerShip.TemporaryHealth -= (int)(buffer * _playerShip.TemporaryHealth);
         foreach (var mod in _modules)
         {
             mod.Reset();
@@ -98,6 +122,7 @@ public class CombatManager : MonoBehaviour
         foreach (var module in _modules)
         {
             module.Tick(); // TODO: Maybe add time between each action?
+            
         }
 
         StartCoroutine(StartEnemyTurn());
@@ -127,15 +152,46 @@ public class CombatManager : MonoBehaviour
             GameManager.currentShipPosition = Vector3.zero;
             GameManager.progress = 0;
             if (GameManager.CurrentRun > 0)
-                SceneManager.LoadScene("Upgrade");
-            SceneManager.LoadScene("Scenes/Tuto");
+            {
+                _playerShip.ShipDeath();
+                SceneManager.LoadScene("DeathRebirth");
+            }
+            else
+            {
+                _playerShip.GetComponent<ArcMovement>().enabled = true;
+                StartCoroutine(WaitForThreeSecond());
+            }
+            return;
         }
 
         if (!checkEnemies())
         {
+            win = true;
             //TODO : You win;
-            SceneManager.LoadScene("Map/MAP 2");
+            var fant = FindObjectOfType<Fantomes>();
+            if(!fant.IsUnityNull())
+            {
+                fant.End();
+            }
+            else
+            {
+                if (GameManager.progress == 0)
+                    SceneManager.LoadScene("SceneCombatFantome");
+                else 
+                    SceneManager.LoadScene("Map/MAP 2");
+                
+            }
         }
+    }
+    
+    private IEnumerator WaitForThreeSecond()
+    {
+        // Attend 1 seconde
+        yield return new WaitForSeconds(3f);
+        _playerShip.ShipDeath();
+        SceneManager.LoadScene("Scenes/Tuto");
+        
+        Debug.Log("1 seconde s'est écoulée !");
     }
 
     private bool checkEnemies()

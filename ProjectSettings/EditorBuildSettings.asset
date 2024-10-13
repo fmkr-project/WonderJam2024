@@ -29,4 +29,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Asteroides.unity
     guid: 14c543991f19c174ebe0a66ef261db8a
+  - enabled: 1
+    path: Assets/Scenes/SceneCombatBoss.unity
+    guid: e769e02c38954054dbf70cd69645db58
+  - enabled: 1
+    path: Assets/Scenes/SceneCombatFantome.unity
+    guid: aa68e1ad6ec78cb46869630d14a3e7a5
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: 330dd4ca8430f9b4b912b37d049833ca
   m_configObjects: {}

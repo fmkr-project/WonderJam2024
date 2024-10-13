@@ -9,12 +9,16 @@ namespace Managers
     {
         public static PlayerShip CurrentPlayerShip { get; set; }
         public static int CurrentRun { get; set; }
+        
 
         public static List<RebirthUpgrade> RebirthUpgrades = new();
 
         public static float progress;
         public static string map = "Map/MAP 2";
         public static Vector3 currentShipPosition;
+        public static int currentBossRush;
+
+        public static int ether;
 
         public static void NewGame()
         {
@@ -23,3 +27,5 @@ namespace Managers
         }
     }
 }
+
+
