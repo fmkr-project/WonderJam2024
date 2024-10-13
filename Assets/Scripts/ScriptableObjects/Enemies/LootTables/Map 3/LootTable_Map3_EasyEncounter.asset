@@ -18,4 +18,4 @@ MonoBehaviour:
   minScrapDrop: 45
   maxScrapDrop: 65
   crewDropProbability: 35
-  etherDropProbability: 20
+  etherDropProbability: 25

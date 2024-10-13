@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 365810e475c0ce441953b608ea2f9e83, type: 3}
   m_Name: LootTable_Map1_Boss
   m_EditorClassIdentifier: 
-  minMoneyDrop: 60
-  maxMoneyDrop: 90
+  minMoneyDrop: 120
+  maxMoneyDrop: 160
   scrapDropProbability: 100
-  minScrapDrop: 40
-  maxScrapDrop: 50
+  minScrapDrop: 55
+  maxScrapDrop: 85
   crewDropProbability: 100
   etherDropProbability: 100

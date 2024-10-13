@@ -16,7 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   price:
     Resource: 0
-    Quantity: 225
+    Quantity: 265
   requiredCrew: 5
   weaponDamage: 40
   weaponType: 4
