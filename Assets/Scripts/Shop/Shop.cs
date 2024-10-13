@@ -82,11 +82,7 @@ public class Shop : MonoBehaviour
         }
     }
 
-    public void test()
-    {
-        Debug.Log("yo");
-    }
-
+  
     public bool BuyOneCrewmate()
     {
         var player = FindObjectOfType<PlayerShip>();
@@ -142,4 +138,32 @@ public class Shop : MonoBehaviour
         return false;
     }
         
+    
+    public bool ReplaceTier1WithTier2(Module module)
+    {
+        // Recherche de l'index du module de tier 1 correspondant dans SoldModules
+        int index = SoldModules.FindIndex(m => m.ModuleName == module.ModuleName);
+        if (index != -1)
+        {
+            // Cherche le module de tier 2 correspondant dans SoldAmeliorations
+            var tier2Module = SoldAmeliorations.FirstOrDefault(m => m.ModuleName == module.ModuleName);
+        
+            // Si un module de tier 2 correspondant est trouvé, le remplace
+            if (tier2Module != null)
+            {
+                SoldModules[index] = tier2Module;
+                return true; // Indique que le remplacement a réussi
+            }
+        }
+        return false; // Aucun remplacement effectué si le module correspondant n'est pas trouvé
+    }
+
+
+    
+    private string GetBaseName(string moduleName)
+    {
+        int tierIndex = moduleName.LastIndexOf("_Tier");
+        return tierIndex != -1 ? moduleName.Substring(0, tierIndex) : moduleName;
+    }
+
 }
