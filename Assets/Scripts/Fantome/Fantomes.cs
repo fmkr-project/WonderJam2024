@@ -13,7 +13,7 @@ public class Fantomes : MonoBehaviour
         gameObject.AddComponent<ShipDataHandler>().LoadPlayerShipData();
         EnemyShip enemyShip = FindObjectOfType<EnemyShip>();
         enemyShip.GetComponent<SpriteRenderer>().color = new Color(0.2f, 0.2f, 0.2f,1);
-        enemyShip.gameObject.transform.rotation = Quaternion.Euler(0,0,90);
+        enemyShip.gameObject.transform.rotation = Quaternion.Euler(0,0,-90);
     }
 
     public void End()

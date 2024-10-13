@@ -57,6 +57,7 @@ public class SelectModule : MonoBehaviour
     {
         foreach (var enemyInCombat in _enemyInCombats)
         {
+            if(enemyInCombat.IsUnityNull()) continue;
             enemyInCombat.circle.SetActive(false);
         }
         if(_selectedWeapon.IsUnityNull()) return;
@@ -99,6 +100,7 @@ public class SelectModule : MonoBehaviour
                 {
                     foreach (var enemyInCombat in _enemyInCombats)
                     {
+                        if(enemyInCombat.IsUnityNull())continue;
                         enemyInCombat.circle.SetActive(true);
                     }
                     _selectedWeapon = weapon;
@@ -130,6 +132,7 @@ public class SelectModule : MonoBehaviour
         _selectedWeapon = null;
         foreach (var enemyInCombat in _enemyInCombats)
         {
+            if(enemyInCombat.IsUnityNull()) continue;
             enemyInCombat.circle.SetActive(false);
         }
     }
