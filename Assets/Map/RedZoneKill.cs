@@ -25,7 +25,7 @@ public class RedZoneKill : MonoBehaviour
             
             if (hitCollider.gameObject.name=="RedZone")
             {
-                Destroy(FindObjectOfType<PlayerShip>().gameObject);
+                FindObjectOfType<PlayerShip>().ShipDeath();
                 _gameOver = true;
                 Time.timeScale = 0;
                 SceneManager.LoadScene("DeathRebirth");
