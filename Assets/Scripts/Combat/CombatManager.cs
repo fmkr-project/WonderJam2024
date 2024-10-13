@@ -89,6 +89,7 @@ public class CombatManager : MonoBehaviour
 
     private void StartPlayerTurn()
     {
+        if (_playerShip.Health < 0) return;
         double buffer = 1;
         foreach (RebirthUpgrade upgrade in GameManager.RebirthUpgrades)
         {
