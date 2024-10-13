@@ -45,7 +45,7 @@ public class ShipDataHandler : MonoBehaviour
     public PlayerShipData data;
     public void SavePlayerShipData()
     {
-        string pathSave = Path.Combine("C:\\Users\\super\\OneDrive\\Documents\\GitHub\\WonderJam2024\\Assets\\PlayerData", "playerShipData"+ GameManager.CurrentRun +".json");
+        string pathSave = Path.Combine(Application.dataPath +"\\PlayerData", "playerShipData"+ GameManager.CurrentRun +".json");
         PlayerShip playerShip;
         playerShip = FindObjectOfType<PlayerShip>();
         data = new PlayerShipData(playerShip.MaxHealth);
@@ -71,7 +71,7 @@ public class ShipDataHandler : MonoBehaviour
     
     public void LoadPlayerShipData()
     {
-        string pathLoad = Path.Combine("C:\\Users\\super\\OneDrive\\Documents\\GitHub\\WonderJam2024\\Assets\\PlayerData", "playerShipData"+ GameManager.CurrentRun +".json");
+        string pathLoad = Path.Combine(Application.dataPath +"\\PlayerData", "playerShipData"+ GameManager.CurrentRun +".json");
         EnemyShip enemyShip =FindObjectOfType<EnemyShip>();
         if (!File.Exists(pathLoad))
         {
