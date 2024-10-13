@@ -117,7 +117,7 @@ namespace Ships
             TemporaryHealth = enemyShipScriptableObject.temporaryHealth;
             Sprite = enemyShipScriptableObject.sprite;
             
-/*            foreach (Shield shield in enemyShipScriptableObject.shieldModules.Select(shieldModule => new Shield(
+            foreach (Shield shield in enemyShipScriptableObject.shieldModules.Select(shieldModule => new Shield(
                          shieldModule.moduleName, 
                          shieldModule.sprite,
                          shieldModule.requiredCrew,
@@ -128,7 +128,7 @@ namespace Ships
             {
                 moduleManager.AddModuleToShip(shield);
             }
-            */
+            
             foreach (Weapon weapon in enemyShipScriptableObject.weaponModules.Select(weaponModule => new Weapon(
                          weaponModule.moduleName,
                          weaponModule.sprite,
