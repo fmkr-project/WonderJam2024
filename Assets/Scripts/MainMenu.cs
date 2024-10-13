@@ -25,6 +25,16 @@ public class MainMenu : MonoBehaviour
     {
        Application.Quit(); 
     }
+    
+    public void Credits()
+    {
+        SceneManager.LoadScene("Scenes/Credits");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Scenes/Introduction");
+    }
 
     public void NouvelleRun()
     {
@@ -42,6 +52,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Scenes/Tuto");
     }
-    
-    
+
+    public void Home()
+    {
+        SceneManager.LoadScene("Scenes/Introduction");
+    }
 }
