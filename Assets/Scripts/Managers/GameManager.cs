@@ -16,6 +16,7 @@ namespace Managers
         public static float progress;
         public static string map = "Map/MAP 2";
         public static Vector3 currentShipPosition;
+        public static int currentBossRush;
 
         public static int ether;
 

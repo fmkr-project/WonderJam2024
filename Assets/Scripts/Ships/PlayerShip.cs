@@ -64,6 +64,7 @@ namespace Ships
         /// </summary>
         internal void ShipDeath()
         {
+            GameManager.CurrentRun += 1;
             GameManager.ether = Inventory[Resource.Ether];
             gameObject.AddComponent<ShipDataHandler>().SavePlayerShipData();
             Destroy(gameObject);

@@ -23,11 +23,11 @@ public class Shop : MonoBehaviour
        
         
         // Initialize crew / repair cost
-        OneCrewCost = new ResourceAmount(Resource.Money, 1000);
-        ThreeCrewCost = new ResourceAmount(Resource.Money, 2700);
+        OneCrewCost = new ResourceAmount(Resource.Money, 50);
+        ThreeCrewCost = new ResourceAmount(Resource.Money, 120);
         
-        TenPercentRepairsCost = new ResourceAmount(Resource.Scrap, 250);
-        FiftyPercentRepairsCost = new ResourceAmount(Resource.Scrap, 1100);
+        TenPercentRepairsCost = new ResourceAmount(Resource.Scrap, 20);
+        FiftyPercentRepairsCost = new ResourceAmount(Resource.Scrap, 70);
         
         // Initialize the shop catalog
         foreach (Shield shield in shieldModulesList.Select(shieldModule => new Shield(

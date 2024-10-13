@@ -41,7 +41,6 @@ public class PlayerShipData
 }
 public class ShipDataHandler : MonoBehaviour
 {
-    public static int currentBossRush;
     public PlayerShipData data;
     public void SavePlayerShipData()
     {
@@ -71,8 +70,8 @@ public class ShipDataHandler : MonoBehaviour
     
     public void LoadPlayerShipData()
     {
-        string pathLoad = Path.Combine(Application.dataPath +"\\PlayerData", "playerShipData"+ GameManager.CurrentRun +".json");
-        EnemyShip enemyShip =FindObjectOfType<EnemyShip>();
+        string pathLoad = Path.Combine(Application.dataPath +"\\PlayerData", "playerShipData"+ GameManager.currentBossRush +".json");
+        EnemyShip enemyShip = FindObjectOfType<EnemyShip>();
         if (!File.Exists(pathLoad))
         {
             Debug.LogWarning("No save file found at: " + pathLoad);
@@ -103,6 +102,8 @@ public class ShipDataHandler : MonoBehaviour
                     break;
             }
         }
+
+        GameManager.currentBossRush += 1;
         print(enemyShip.Modules.Count);
         Debug.Log("Data loaded successfully.");
     }
