@@ -16,7 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 677b4bafa69a3f24b904f82f7fc3deee, type: 3}
   price:
     Resource: 0
-    Quantity: 30
+    Quantity: 40
   requiredCrew: 2
   weaponDamage: 7
   weaponType: 4

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bed0ab96ec5d4c40b7573af8f79df13, type: 3}
-  m_Name: EnemyT1 4
+  m_Name: EnemyT1_Medium_3
   m_EditorClassIdentifier: 
   health: 50
   maxHealth: 50
   temporaryHealth: 0
-  sprite: {fileID: 21300000, guid: a93c36da6f7182e4096ca2c951efbf42, type: 3}
+  sprite: {fileID: 21300000, guid: 367c33b49e78721499761b909b570691, type: 3}
   shieldModules:
   - {fileID: 11400000, guid: 18189160c2a7a0a4cb3cb04085478257, type: 2}
   weaponModules:
-  - {fileID: 11400000, guid: 25851c6c29aa9964c9919d92966b331a, type: 2}
+  - {fileID: 11400000, guid: 8e146534cd5a93c44b4a29d307768411, type: 2}
