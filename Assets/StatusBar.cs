@@ -52,10 +52,9 @@ public class StatusBar : MonoBehaviour
     {
         var playerShip = GameManager.CurrentPlayerShip;
         _runNumberText.text = "Run " + GameManager.CurrentRun;
-/*
         _moneyAmountText.text = playerShip.Inventory[Resource.Money].ToString();
         _crewAmountText.text = playerShip.Inventory[Resource.Crew].ToString();
         _scrapsAmountText.text = playerShip.Inventory[Resource.Scrap].ToString();
-        _etherAmountText.text = playerShip.Inventory[Resource.Ether].ToString();*/
+        _etherAmountText.text = playerShip.Inventory[Resource.Ether].ToString();
     }
 }

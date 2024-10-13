@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a4a568d3b742c09e5ffe9c1ed0d95a, type: 3}
   m_Name: PlasmaShield_Tier3
   m_EditorClassIdentifier: 
-  moduleName: 
+  moduleName: Plasma Field
   sprite: {fileID: 0}
   price:
     Resource: 0

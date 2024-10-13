@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using Modules;
 using Ships;
 using Unity.VisualScripting;
@@ -16,7 +17,7 @@ public class CombatManager : MonoBehaviour
     public GameObject weaponSelectionMenu; // Weapon selection menu
 
     public List<GameObject> enemies;
-    private List<GameObject> enemiesInstantiated = new List<GameObject>();
+    public List<GameObject> enemiesInstantiated = new List<GameObject>();
 
     [SerializeField] private List<GameObject> temporaryModules;
 
@@ -30,8 +31,6 @@ public class CombatManager : MonoBehaviour
     {
         _playerShip = FindObjectOfType<PlayerShip>();
         StartCoroutine(SpawnEnemies());
-        //TODO : quand on aura un vrai ship !
-        FindObjectOfType<AddsomeModules>().add();
         SpawnModules();
     }
 
@@ -70,14 +69,14 @@ public class CombatManager : MonoBehaviour
     }
     private IEnumerator SpawnEnemies()
     {
-        foreach(var enemyPrefab in enemies)
-        {
-            GameObject enemy = Instantiate(enemyPrefab, enemyParent);
-            enemiesInstantiated.Add(enemy);
-            yield return new WaitForSeconds(0.5f); // Delay between each enemy
-        }
+        if (!(enemiesInstantiated.Count >= 1)) 
+            foreach(var enemyPrefab in enemies)
+            {
+                GameObject enemy = Instantiate(enemyPrefab, enemyParent);
+                enemiesInstantiated.Add(enemy);
+                yield return new WaitForSeconds(0.5f); // Delay between each enemy
+            }
         StartPlayerTurn(); // Start the player's turn
-
     }
 
     private void StartPlayerTurn()
@@ -123,7 +122,9 @@ public class CombatManager : MonoBehaviour
         if (_playerShip.Health <0) 
         {
             //TODO : you loose;
-            print("you loose");
+            if (GameManager.CurrentRun > 0)
+                SceneManager.LoadScene("Upgrade");
+            SceneManager.LoadScene("Scenes/Tuto");
         }
 
         if (!checkEnemies())

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58a4a568d3b742c09e5ffe9c1ed0d95a, type: 3}
   m_Name: PsionicShield_Tier2
   m_EditorClassIdentifier: 
-  moduleName: 
+  moduleName: Psionic Shield
   sprite: {fileID: 0}
   price:
     Resource: 0
-    Quantity: 0
-  requiredCrew: 0
-  shieldType: 0
-  shieldHealth: 0
+    Quantity: 230
+  requiredCrew: 6
+  shieldType: 3
+  shieldHealth: 85

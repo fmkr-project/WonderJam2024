@@ -10,6 +10,7 @@ public class NewBehaviourScript : Place
     public override void ChangeAction()
     {
         print("change scene to shop");
+        SceneManager.LoadScene("ShopScene");
         //change scene to shop
         //SceneManager.LoadScene("Shop");
     }
