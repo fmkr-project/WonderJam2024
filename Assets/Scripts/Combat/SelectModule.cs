@@ -52,7 +52,6 @@ public class SelectModule : MonoBehaviour
 
     public void OnSelect(GameObject target)
     {
-        print(_currentTotal);
         if (target.TryGetComponent(out ShieldInCombat shield))
         {
             if (shield.isUsed) return;

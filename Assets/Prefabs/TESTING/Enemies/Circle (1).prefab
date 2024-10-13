@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5222989385659499610}
   - component: {fileID: 3015458292664054697}
+  - component: {fileID: 7313670460679438212}
+  - component: {fileID: 2006060931599919762}
   - component: {fileID: 2854066151756157622}
   - component: {fileID: 4982743475453465532}
   m_Layer: 0
@@ -86,6 +88,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7313670460679438212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327701252707633042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bb51b631b6b12e49833b2a860542f95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthManager: {fileID: 0}
+  moduleManager: {fileID: 0}
+  enemyShipLootTableScriptableObject: {fileID: 11400000, guid: a99b8e5b73b917f4db0e77405d4a503d, type: 2}
+  enemyShipScriptableObject: {fileID: 11400000, guid: 5c3fd2ae5724ae2418e8532881646ef2, type: 2}
+--- !u!114 &2006060931599919762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327701252707633042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d6b5ec241dbe6a40b709bc47b9573b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2854066151756157622
 MonoBehaviour:
   m_ObjectHideFlags: 0

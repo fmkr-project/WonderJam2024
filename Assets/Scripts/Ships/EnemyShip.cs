@@ -24,7 +24,7 @@ namespace Ships
         #region Methods
         
         // Start is called before the first frame update
-        private void Start()
+        private void Awake()
         {
             ShipInitialization();
             EnemyShipInitialization();

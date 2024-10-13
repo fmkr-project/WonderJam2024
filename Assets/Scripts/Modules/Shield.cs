@@ -24,6 +24,11 @@ namespace Modules
         {
             ShieldHealth = shieldHealth;
         }
+
+        public Shield()
+        {
+            
+        }
         
         #endregion
     }

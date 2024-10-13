@@ -27,6 +27,10 @@ namespace Modules
             WeaponType = weaponType;
             WeaponDamage = weaponDamage;
         }
+
+        public Weapon()
+        {
+        }
         
         #endregion
     }
