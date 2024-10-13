@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
+using Upgrades;
 
 public class Map : MonoBehaviour
 {
@@ -78,7 +79,16 @@ public class Map : MonoBehaviour
         }
         else
         {
-            GameManager.progress = progress+(float)0.5;
+            int buffer = 1;
+            foreach (RebirthUpgrade upgrade in GameManager.RebirthUpgrades)
+            {
+                if (upgrade.Name == "LessRedzone")
+                {
+                    buffer++;
+                }
+            }
+
+            GameManager.progress = progress+(float)0.5/buffer;
             GameManager.currentShipPosition = currentShip.transform.position;
         
 

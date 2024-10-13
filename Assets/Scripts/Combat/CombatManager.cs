@@ -7,6 +7,7 @@ using Ships;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Upgrades;
 
 public class CombatManager : MonoBehaviour
 {
@@ -87,6 +88,16 @@ public class CombatManager : MonoBehaviour
 
     private void StartPlayerTurn()
     {
+        double buffer = 1;
+        foreach (RebirthUpgrade upgrade in GameManager.RebirthUpgrades)
+        {
+            if (upgrade.Name == "ShieldRegen")
+            {
+                buffer -= 0.1;
+            }
+        }
+
+        _playerShip.TemporaryHealth -= (int)(buffer * _playerShip.TemporaryHealth);
         foreach (var mod in _modules)
         {
             mod.Reset();

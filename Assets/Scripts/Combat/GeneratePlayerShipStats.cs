@@ -5,7 +5,9 @@ using Managers;
 using Modules;
 using ScriptableObjects.Scripts;
 using Ships;
+using Unity.VisualScripting;
 using UnityEngine;
+using Upgrades;
 
 public class GeneratePlayerShipStats : MonoBehaviour
 {
@@ -21,6 +23,18 @@ public class GeneratePlayerShipStats : MonoBehaviour
     {
         _playerShip = FindObjectOfType<PlayerShip>();
         moduleManager = _playerShip.moduleManager;
+        foreach (RebirthUpgrade upgrade in GameManager.RebirthUpgrades)
+        {
+            if (upgrade.Name == "MoreCrew")
+            {
+                crew++;
+            }
+
+            if (upgrade.Name == "MoreHealth")
+            {
+                enemyShipScriptableObject.maxHealth += 25;
+            }
+        }
         PlayerShipInitialisation();
     }
 

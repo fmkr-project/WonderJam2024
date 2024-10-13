@@ -29,4 +29,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene(GameManager.map);
     }
+    
+    public void  NouveauRunner()
+    {
+        SceneManager.LoadScene("Scenes/Tuto");
+    }
 }

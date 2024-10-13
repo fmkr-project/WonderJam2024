@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using Ships;
 using UnityEditor;
 using UnityEngine;
@@ -9,6 +10,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Unity.VisualScripting;
+using Upgrades;
 using Image = UnityEngine.UI.Image;
 
 
@@ -61,12 +63,26 @@ public class SelectModule : MonoBehaviour
 
     public void OnSelect(GameObject target)
     {
+        double buffer=1.0f;
+        double bufferW = 1.0f;
+        foreach (RebirthUpgrade upgrade in GameManager.RebirthUpgrades)
+        {
+            if (upgrade.Name == "MoreShield")
+            {
+                buffer = buffer*1.05f;
+            }
+            if (upgrade.Name == "MoreDamage")
+            {
+                buffer = buffer*1.05f;
+            }
+        }
+
         if (target.TryGetComponent(out ShieldInCombat shield))
         {
             if (shield.isUsed) return;
             if (_currentTotal + shield.squareValue <= maxTotal)
             {
-                _currentTotal += shield.squareValue;
+                _currentTotal += (int)(shield.squareValue*buffer);
                 shield.isUsed = true;
                 shield.GetComponent<Image>().color = Color.gray; 
             }

@@ -27,6 +27,7 @@ public class RebirthUpgradeButton : MonoBehaviour
                 GameManager.RebirthUpgrades.Add(newUpgrade);
 
                 Debug.Log($"Upgrade ajouté : {upgradeName}");
+                Debug.Log(GameManager.RebirthUpgrades.Count);
             }
         }
     }
