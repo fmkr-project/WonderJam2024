@@ -24,6 +24,7 @@ public class CreateWeaponCombat : MonoBehaviour
         WeaponInCombat stats = GetComponent<WeaponInCombat>();
         stats.squareValue = module.RequiredCrew;
         stats.atk = module.WeaponDamage;
+        stats.weaponType = module.WeaponType;
     }
     
 }

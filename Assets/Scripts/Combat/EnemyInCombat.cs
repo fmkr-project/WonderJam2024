@@ -5,6 +5,7 @@ using Modules;
 using Ships;
 using Unity.VisualScripting;
 using UnityEngine;
+using Upgrades.Combat.Modules;
 using Random = UnityEngine.Random;
 
 public class EnemyInCombat : MonoBehaviour
@@ -36,8 +37,38 @@ public class EnemyInCombat : MonoBehaviour
                 case(Shield) :
                     _ship.healthManager.Shield(((Shield)mod).ShieldHealth);
                     break ;
-                case(Weapon) :
-                    //TODO: maybe add "use of weapon"
+                case Weapon w :
+                    Sprite projectile;
+                    switch (w.WeaponType)
+                    {
+                        case WeaponType.Laser:
+                            projectile = Resources.Load<Sprite>("Particles (Sprites)/Beam");
+                            break;
+                        case WeaponType.PlasmaThrower:
+                            projectile = Resources.Load<Sprite>("Particles (Sprites)/Projectile Sharp");
+                            break;
+                        case WeaponType.Disruptor:
+                            projectile = Resources.Load<Sprite>("Particles (Sprites)/Small Flare");
+                            break;
+                        case WeaponType.ArcEmitter:
+                            projectile = Resources.Load<Sprite>("Particles (Sprites)/BigFlare");
+                            break;
+                        case WeaponType.Autocannon:
+                            projectile = Resources.Load<Sprite>("Particles (Sprites)/Projectile Thin");
+                            break;
+                        case WeaponType.Missiles:
+                            projectile = Resources.Load<Sprite>("Missiles/Missile (1)");
+                            break;
+                        case WeaponType.Torpedoes:
+                            projectile = Resources.Load<Sprite>("Missiles/Missile (3)");
+                            break;
+                        default:
+                            projectile = Resources.Load<Sprite>("Particles (Sprites)/Projectile Sharp");
+                            break;
+                    }
+                    
+                    // Animate projectile
+                    StartCoroutine(ProjectileAnimation.Animate(projectile, transform.position, _playerShip.transform.position, 0.25f));
                     _playerShip.healthManager.TakeDamage(((Weapon)mod).WeaponDamage);
                     StartCoroutine(FlashDamageEffect(_playerShip));
                     break;
