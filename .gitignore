@@ -73,3 +73,6 @@ crashlytics-build.properties
 
 
 *.json
+/Assets/2D Space Kit
+/Assets/Resources/Missiles
+/Assets/Resources/Missiles

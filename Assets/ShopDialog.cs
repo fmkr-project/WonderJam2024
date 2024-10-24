@@ -8,15 +8,14 @@ using Random = UnityEngine.Random;
 
 public class ShopDialog : MonoBehaviour
 {
-    private bool done = false;
    private IEnumerator Start()
     {
         Debug.Log(GameManager.CurrentRun);
         if (GameManager.CurrentRun == 1)
         {
-            if (!done)
+            if (!GameManager.hasShoped)
             {
-                done = true;
+                GameManager.hasShoped = true;
                 StartCoroutine(DialogueManager.OpenDialogueBox());
                 // Before and after each operation, insert this line to wait until the player clicks on the screen
                 while (DialogueManager._blockDialoguePrinting) yield return new WaitForSeconds(Time.deltaTime);

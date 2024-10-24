@@ -153,6 +153,12 @@ namespace Managers
             _lootImage = GameObject.Find("LootBoxImage").GetComponent<Image>();
         }
 
+        private void OnDestroy()
+        {
+            // Clean up all the ieumerators
+            StopAllCoroutines();
+        }
+
         IEnumerator Example()
         {
             // Example DialogueManager coroutine.

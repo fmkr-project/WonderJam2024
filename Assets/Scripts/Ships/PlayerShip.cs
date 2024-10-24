@@ -43,7 +43,7 @@ namespace Ships
             AddResourceToInventory(Resource.Money, 0);
             AddResourceToInventory(Resource.Crew, 0);
             AddResourceToInventory(Resource.Scrap, 0);
-            AddResourceToInventory(Resource.Ether, 0);
+            AddResourceToInventory(Resource.Ether, GameManager.ether);
             DontDestroyOnLoad(gameObject);
         }
 

@@ -20,7 +20,7 @@ public class SelectModule : MonoBehaviour
 {
     
     public static SelectModule Instance { get; private set; }
-    public int maxTotal = 4; //TODO change this value to match the real value
+    public int maxTotal = 4; //this value is changed externally
 
     private int _currentTotal = 0;
     private WeaponInCombat _selectedWeapon;
@@ -164,7 +164,6 @@ public class SelectModule : MonoBehaviour
         // Animate projectile
         StartCoroutine(ProjectileAnimation.Animate(projectile, PlayerShip.Instance.transform.position, enemy.transform.position, 0.25f));
 
-        StartCoroutine(enemyinCombat.FlashDamageEffect(_ship));
         _selectedWeapon = null;
         foreach (var enemyInCombat in _enemyInCombats)
         {

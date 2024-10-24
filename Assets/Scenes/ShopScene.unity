@@ -2822,6 +2822,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FiftyPercent
       objectReference: {fileID: 0}
+    - target: {fileID: 6094448150603570659, guid: 9355a003173287e468a1f8997ebd2062, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 5.2271
+      objectReference: {fileID: 0}
+    - target: {fileID: 6094448150603570659, guid: 9355a003173287e468a1f8997ebd2062, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -21.928
+      objectReference: {fileID: 0}
     - target: {fileID: 6675744384359948789, guid: 9355a003173287e468a1f8997ebd2062, type: 3}
       propertyPath: m_Sprite
       value: 

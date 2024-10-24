@@ -35,11 +35,11 @@ public class RepairSpawner : MonoBehaviour
     {
         
         var tenText = tenPercent.GetComponentInChildren<TMP_Text>();
-        tenText.text = shop.OneCrewCost.Quantity.ToString();
+        tenText.text = shop.TenPercentRepairsCost.Quantity.ToString();
 
         
         var fiftyText = fiftyPercent.GetComponentInChildren<TMP_Text>();
-        fiftyText.text = shop.ThreeCrewCost.Quantity.ToString();
+        fiftyText.text = shop.FiftyPercentRepairsCost.Quantity.ToString();
     }
     private void SetupButton(GameObject prefab, System.Func<bool> buyFunction)
     {

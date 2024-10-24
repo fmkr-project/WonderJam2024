@@ -117,7 +117,7 @@ public class Shop : MonoBehaviour
         if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(TenPercentRepairsCost.Resource, TenPercentRepairsCost.Quantity))
         {
             player.RemoveResourceFromInventory(TenPercentRepairsCost.Resource, TenPercentRepairsCost.Quantity);
-            //TODO Rendre 10% des pvs du ship
+            player.healthManager.Heal((int)(player.MaxHealth * 0.1f));
             return true;
         }
 
@@ -131,7 +131,7 @@ public class Shop : MonoBehaviour
         if (player.ChecksIfPlayerHasEnoughOfTheGivenResource(FiftyPercentRepairsCost.Resource, FiftyPercentRepairsCost.Quantity))
         {
             player.RemoveResourceFromInventory(FiftyPercentRepairsCost.Resource, FiftyPercentRepairsCost.Quantity);
-            //TODO Rendre  50 % des pvs du ship
+            player.healthManager.Heal((int)(player.MaxHealth * 0.5f));
             return true;
         }
 

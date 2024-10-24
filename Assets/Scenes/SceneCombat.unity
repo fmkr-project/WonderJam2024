@@ -604,7 +604,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.7, y: 2.12, z: 0}
-  m_LocalScale: {x: 13.64, y: 13.64, z: 13.64}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -1659,7 +1659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squareValue: 2
   isUsed: 0
-  shieldIC: 0
+  shieldHealth: 0
+  shieldType: 0
 --- !u!224 &2411840565978416721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2095,9 +2096,11 @@ MonoBehaviour:
   squareValue: 5
   isUsed: 0
   isTicked: 0
-  atk: 0
+  weaponDamage: 0
   weaponType: 0
   enemy: {fileID: 0}
+  _enemyShip: {fileID: 0}
+  _enemyInCombat: {fileID: 0}
 --- !u!224 &5669671886917106868
 RectTransform:
   m_ObjectHideFlags: 0

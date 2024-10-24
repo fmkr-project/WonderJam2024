@@ -75,7 +75,7 @@ public class Map : MonoBehaviour
             GameManager.progress = 0;
             GameManager.currentShipPosition = Vector3.zero;
             SceneManager.LoadScene("SceneCombatBoss");
-            //TODO : changer le currentship dans le manager + la map + le progress
+            //changer le currentship dans le manager + la map + le progress
         }
         else
         {

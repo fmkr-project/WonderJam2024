@@ -21,7 +21,7 @@ namespace UI
             _moduleIcon.SetActive(true);
             
             // Instanciate enough module icons
-            _shipModules = 10; // todo do ships have a max amount of modules?
+            _shipModules = 10; // DONE do ships have a max amount of modules?
             for (var i = 1; i < _shipModules; i++)
             {
                 var newModule = Instantiate(_moduleIcon, transform);

@@ -9,6 +9,8 @@ namespace Managers
     {
         public static PlayerShip CurrentPlayerShip { get; set; }
         public static int CurrentRun { get; set; }
+        public static bool hasShoped = false;
+        public static bool hasBeatenBoss = false;
         
 
         public static List<RebirthUpgrade> RebirthUpgrades = new();
@@ -18,7 +20,7 @@ namespace Managers
         public static Vector3 currentShipPosition;
         public static int currentBossRush;
 
-        public static int ether;
+        public static int ether = 0;
 
         public static void NewGame()
         {

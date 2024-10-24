@@ -171,7 +171,7 @@ public class CombatManager : MonoBehaviour
     {
         if (_playerShip.Health <=0) 
         {
-            //TODO : you loose;
+            //you loose;
             GameManager.currentShipPosition = Vector3.zero;
             GameManager.progress = 0;
             if (GameManager.CurrentRun > 0)
@@ -190,7 +190,7 @@ public class CombatManager : MonoBehaviour
         if (!checkEnemies())
         {
             win = true;
-            //TODO : You win;
+            //You win;
             var fant = FindObjectOfType<Fantomes>();
             if(!fant.IsUnityNull())
             {
